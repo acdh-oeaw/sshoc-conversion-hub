@@ -1,0 +1,23 @@
+uuid: c2c1b5c0-7189-4b63-b756-838f7f70b013
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_source
+    - node.type.solution
+  module:
+    - link
+id: node.solution.field_source
+field_name: field_source
+entity_type: node
+bundle: solution
+label: Source
+description: 'This attribute describes the source(s) that were used to create the conversion hub entry.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

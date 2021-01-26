@@ -1,0 +1,29 @@
+uuid: a8979bea-fa84-4c7c-aa9a-6404c7b414b9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_operate_service
+    - node.type.solution
+    - taxonomy.vocabulary.uses_of_solution
+id: node.solution.field_operate_service
+field_name: field_operate_service
+entity_type: node
+bundle: solution
+label: 'Use of solution: Operate service'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      uses_of_solution: uses_of_solution
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

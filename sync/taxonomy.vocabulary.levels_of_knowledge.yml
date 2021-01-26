@@ -1,0 +1,8 @@
+uuid: 7d7420db-c7d0-4990-bd4f-a2da03354cfc
+langcode: en
+status: true
+dependencies: {  }
+name: 'Levels of knowledge'
+vid: levels_of_knowledge
+description: ''
+weight: 0

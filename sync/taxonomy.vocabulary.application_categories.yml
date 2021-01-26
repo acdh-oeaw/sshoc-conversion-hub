@@ -1,0 +1,8 @@
+uuid: db68e983-5aaa-45cc-98f3-4d6db184d4b0
+langcode: en
+status: true
+dependencies: {  }
+name: 'Application categories'
+vid: application_categories
+description: 'This attribute describes the type of the solution.'
+weight: 0

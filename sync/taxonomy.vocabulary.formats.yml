@@ -1,0 +1,8 @@
+uuid: 7f4cb239-109c-4fa6-b9a9-df58c5df4b0b
+langcode: en
+status: true
+dependencies: {  }
+name: Formats
+vid: formats
+description: ''
+weight: 0

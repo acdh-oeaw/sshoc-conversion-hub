@@ -1,0 +1,8 @@
+uuid: 500b5562-5995-4b0a-9717-7f413448036c
+langcode: en
+status: true
+dependencies: {  }
+name: Communities
+vid: communities
+description: 'This attribute describes which SSHOC community uses the solution (primarily).'
+weight: 0

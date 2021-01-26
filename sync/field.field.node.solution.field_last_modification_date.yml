@@ -1,0 +1,21 @@
+uuid: c323a703-1233-461e-93e5-aea4d6cf9f73
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_last_modification_date
+    - node.type.solution
+  module:
+    - datetime
+id: node.solution.field_last_modification_date
+field_name: field_last_modification_date
+entity_type: node
+bundle: solution
+label: 'Last Modification date'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

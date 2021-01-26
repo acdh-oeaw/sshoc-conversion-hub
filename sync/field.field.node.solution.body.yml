@@ -1,0 +1,23 @@
+uuid: 97e17754-2ce1-4112-a47a-b983ef957e6d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.solution
+  module:
+    - text
+id: node.solution.body
+field_name: body
+entity_type: node
+bundle: solution
+label: Description
+description: 'A short textual description of the solution.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+field_type: text_with_summary

@@ -1,0 +1,17 @@
+uuid: 25194fa7-3731-453c-885d-b2467faa6541
+langcode: en
+status: true
+dependencies:
+  module:
+    - search_api_db
+id: conversion_hub_database
+name: 'Conversion Hub Database'
+description: 'Database based search for the conversion hub'
+backend: search_api_db
+backend_config:
+  database: 'default:default'
+  min_chars: 1
+  matching: partial
+  autocomplete:
+    suggest_suffix: true
+    suggest_words: true

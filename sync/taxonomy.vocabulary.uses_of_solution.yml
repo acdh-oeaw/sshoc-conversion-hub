@@ -1,0 +1,8 @@
+uuid: 46ce7339-6628-49cd-9328-81bdf04c9aec
+langcode: en
+status: true
+dependencies: {  }
+name: 'Uses of solution'
+vid: uses_of_solution
+description: ''
+weight: 0

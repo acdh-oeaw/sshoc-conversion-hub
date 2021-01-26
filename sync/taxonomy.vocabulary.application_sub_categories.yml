@@ -1,0 +1,8 @@
+uuid: c285c9a2-c2fa-4402-971d-6670e988e990
+langcode: en
+status: true
+dependencies: {  }
+name: 'Application sub-categories'
+vid: application_sub_categories
+description: ''
+weight: 0

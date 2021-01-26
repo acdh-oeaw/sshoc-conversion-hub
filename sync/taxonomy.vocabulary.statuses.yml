@@ -1,0 +1,8 @@
+uuid: 17b486b2-71ce-4c45-a8b1-4eeb44ccf2ec
+langcode: en
+status: true
+dependencies: {  }
+name: Statuses
+vid: statuses
+description: 'Status of service'
+weight: 0

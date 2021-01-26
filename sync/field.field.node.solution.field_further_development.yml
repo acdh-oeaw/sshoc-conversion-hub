@@ -1,0 +1,29 @@
+uuid: 77a84721-7ab8-4e5b-bb00-b1767027fc4a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_further_development
+    - node.type.solution
+    - taxonomy.vocabulary.uses_of_solution
+id: node.solution.field_further_development
+field_name: field_further_development
+entity_type: node
+bundle: solution
+label: 'Use of solution: Further development'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      uses_of_solution: uses_of_solution
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

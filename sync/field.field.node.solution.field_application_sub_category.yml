@@ -1,0 +1,33 @@
+uuid: 28c767f0-bb83-4eaa-85f2-f02b824a3336
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_application_sub_category
+    - node.type.solution
+    - taxonomy.vocabulary.application_sub_categories
+  content:
+    - 'taxonomy_term:application_sub_categories:de1c2bf5-ab97-4976-b856-315d7b3ceff6'
+id: node.solution.field_application_sub_category
+field_name: field_application_sub_category
+entity_type: node
+bundle: solution
+label: 'Application sub-category'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    target_uuid: de1c2bf5-ab97-4976-b856-315d7b3ceff6
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      application_sub_categories: application_sub_categories
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

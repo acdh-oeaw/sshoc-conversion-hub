@@ -1,0 +1,29 @@
+uuid: 4eb245be-c3ee-4e7f-ab83-1642db208d43
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_level_of_knowledge
+    - node.type.solution
+    - taxonomy.vocabulary.levels_of_knowledge
+id: node.solution.field_level_of_knowledge
+field_name: field_level_of_knowledge
+entity_type: node
+bundle: solution
+label: 'Expected Level of Knowledge'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      levels_of_knowledge: levels_of_knowledge
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,23 @@
+uuid: c913a4b1-e45a-4de2-86bb-1c4f15df0c18
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_see_also
+    - node.type.solution
+  module:
+    - link
+id: node.solution.field_see_also
+field_name: field_see_also
+entity_type: node
+bundle: solution
+label: 'See Also'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 16
+  title: 1
+field_type: link

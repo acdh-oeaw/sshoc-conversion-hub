@@ -1,0 +1,29 @@
+uuid: 27e70d0d-0854-4e14-96fc-c3ab4b9a3848
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_input_format
+    - node.type.solution
+    - taxonomy.vocabulary.formats
+id: node.solution.field_input_format
+field_name: field_input_format
+entity_type: node
+bundle: solution
+label: 'Input format'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      formats: formats
+    sort:
+      field: name
+      direction: asc
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,29 @@
+uuid: fad8ca5c-e633-42ca-8f49-32d7e5d32d1d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_community
+    - node.type.solution
+    - taxonomy.vocabulary.communities
+id: node.solution.field_community
+field_name: field_community
+entity_type: node
+bundle: solution
+label: Community
+description: 'This attribute describes which SSHOC community uses the solution (primarily).'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      communities: communities
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,29 @@
+uuid: a36c75b9-da29-4b65-be6a-426f59d6b176
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_invocation_type
+    - node.type.solution
+    - taxonomy.vocabulary.invocation_types
+id: node.solution.field_invocation_type
+field_name: field_invocation_type
+entity_type: node
+bundle: solution
+label: 'Invocation type'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      invocation_types: invocation_types
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,67 @@
+uuid: 053073f2-6eb5-4ceb-90b0-968f83102623
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.solution.body
+    - field.field.node.solution.field_alternative_name
+    - field.field.node.solution.field_application_category
+    - field.field.node.solution.field_application_sub_category
+    - field.field.node.solution.field_community
+    - field.field.node.solution.field_further_development
+    - field.field.node.solution.field_input_format
+    - field.field.node.solution.field_invocation_type
+    - field.field.node.solution.field_last_modification_date
+    - field.field.node.solution.field_level_of_knowledge
+    - field.field.node.solution.field_license
+    - field.field.node.solution.field_local_use
+    - field.field.node.solution.field_operate_service
+    - field.field.node.solution.field_output_format
+    - field.field.node.solution.field_publication_date
+    - field.field.node.solution.field_see_also
+    - field.field.node.solution.field_source
+    - field.field.node.solution.field_status
+    - field.field.node.solution.field_url
+    - node.type.solution
+  module:
+    - text
+    - user
+id: node.solution.teaser
+targetEntityType: node
+bundle: solution
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_alternative_name: true
+  field_application_category: true
+  field_application_sub_category: true
+  field_community: true
+  field_further_development: true
+  field_input_format: true
+  field_invocation_type: true
+  field_last_modification_date: true
+  field_level_of_knowledge: true
+  field_license: true
+  field_local_use: true
+  field_operate_service: true
+  field_output_format: true
+  field_publication_date: true
+  field_see_also: true
+  field_source: true
+  field_status: true
+  field_url: true
+  search_api_excerpt: true

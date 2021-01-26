@@ -4,4 +4,5 @@
 /vendor
 .editorconfig
 .gitattributes
+composer.json
 composer.lock

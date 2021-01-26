@@ -1,0 +1,10 @@
+uuid: ec62b059-d4ff-4811-b55e-2d23cc5ab7e5
+langcode: en
+status: true
+dependencies: {  }
+id: service_data
+label: service_data
+description: ''
+source_type: null
+module: null
+shared_configuration: null

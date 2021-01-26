@@ -1,2 +1,7 @@
 /logs
 /sites
+/web
+/vendor
+.editorconfig
+.gitattributes
+composer.lock

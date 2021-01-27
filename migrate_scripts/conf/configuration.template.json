@@ -1,0 +1,33 @@
+{
+  "csv_import_file": "data/import/conversion_services.csv",
+  "csv_import_file_header": true,
+  "csv_ignore_cols": [],
+  "csv_structure":
+  {
+    "6": "sourceId",
+    "7": "sourceItemId",
+    "8": "persistentId",
+    "11": "category",
+    "13": "label",
+    "14": "description",
+    "16": "hasContributor",
+    "18": "accessibleAt",
+    "19": "wikidata-id",
+    "20": "repository-url",
+    "21": "media",
+    "24": "relatedItems",
+    "25": "tadirah-activity",
+    "26": "keyword",
+    "27": "language",
+    "28": "see-also",
+    "29": "thumbnail",
+    "32": "license",
+    "33": "terms-of-use",
+    "49": "dateLastUpdated",
+    "50": "dateCreated",
+    "53": "conference",
+    "56": "pages",
+    "60": "year",
+    "62": "publisher"
+  },
+}

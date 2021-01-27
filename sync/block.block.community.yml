@@ -1,26 +1,26 @@
-uuid: 195087ad-0e4a-487c-b0a0-833d7750d1d2
+uuid: af3857c9-41d8-4d80-8109-e45409c349b4
 langcode: en
 status: true
 dependencies:
   config:
-    - facets.facet.invocation_type_taxonomy_term_name
+    - facets.facet.community_taxonomy_term_name
   module:
     - facets
     - system
   theme:
     - bootstrap
-id: invocationtype
+id: community
 theme: bootstrap
 region: sidebar_first
-weight: -5
+weight: -8
 provider: null
-plugin: 'facet_block:invocation_type_taxonomy_term_name'
+plugin: 'facet_block:community_taxonomy_term_name'
 settings:
-  id: 'facet_block:invocation_type_taxonomy_term_name'
-  label: 'Invocation type'
+  id: 'facet_block:community_taxonomy_term_name'
+  label: Community
   provider: facets
   label_display: '0'
-  block_id: invocationtype
+  block_id: community
 visibility:
   request_path:
     id: request_path

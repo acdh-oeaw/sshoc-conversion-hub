@@ -3,11 +3,11 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.storage.node.field_community
     - field.storage.node.field_alternative_name
     - field.storage.node.field_input_format
     - field.storage.node.field_invocation_type
     - field.storage.node.field_level_of_knowledge
-    - field.storage.node.field_community
     - field.storage.node.field_output_format
     - field.storage.node.body
     - field.storage.node.field_status
@@ -21,6 +21,16 @@ name: 'Solution entities'
 description: ''
 read_only: false
 field_settings:
+  community:
+    label: 'Community » Taxonomy term » Name'
+    datasource_id: 'entity:node'
+    property_path: 'field_community:entity:name'
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_community
+      module:
+        - taxonomy
   field_alternative_name:
     label: 'Alternative name'
     datasource_id: 'entity:node'
@@ -57,16 +67,6 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.field_level_of_knowledge
-      module:
-        - taxonomy
-  name:
-    label: 'Community » Taxonomy term » Name'
-    datasource_id: 'entity:node'
-    property_path: 'field_community:entity:name'
-    type: string
-    dependencies:
-      config:
-        - field.storage.node.field_community
       module:
         - taxonomy
   output_format:
@@ -120,14 +120,7 @@ processor_settings:
   ignorecase:
     all_fields: false
     fields:
-      - field_alternative_name
-      - input_format
-      - invocation_type
-      - level_of_knowledge
-      - name
-      - output_format
       - processed
-      - status
       - title
     weights:
       preprocess_index: -20

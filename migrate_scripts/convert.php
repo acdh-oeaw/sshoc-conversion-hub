@@ -52,6 +52,7 @@ require_once $autoload;
 require_once __DIR__.'/src/Logger.php';
 require_once __DIR__.'/src/Configuration.php';
 require_once __DIR__.'/src/CsvHandler.php';
+require_once __DIR__.'/src/DataHandler.php';
 require_once __DIR__.'/src/Ingestion.php';
 
 // @todo: also put ingest.php in the namespace SSHOC\MP?

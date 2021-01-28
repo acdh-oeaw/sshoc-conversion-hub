@@ -32,6 +32,7 @@ class IngestSpreadsheet
 {
   private $configClass = null;
   private $csvHandler = null;
+  private $dataHandler = null;
 
   public function __construct($configClass)
   {
@@ -39,9 +40,12 @@ class IngestSpreadsheet
 
     $csvFile = $this->configClass->getConfig('csv_import_file', true);
     $csvFileHeader = $this->configClass->getConfig(
-        'csv_import_file_header', true);
+        'csv_import_file_has_header', true);
     $this->csvHandler = new CsvHandler(
         $this->configClass, $csvFile, $csvFileHeader);
+
+    $this->dataHandler = new DataHandler(
+        $this->configClass, $this->apiHandler, $this->vocabularyHandler);
   }
   
   private function connectToApi()

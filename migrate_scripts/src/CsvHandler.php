@@ -70,6 +70,7 @@ class CsvHandler
     if($this->hasHeader) {
       $csv->setHeaderOffset(0);
     }
+    print $this->csvFile;
     $this->csvRecords = $csv->getRecords();
     if (empty($this->csvRecords)) {
       Logger::log('Import file '. $this->csvFile . ' does not have any data. '
@@ -82,7 +83,8 @@ class CsvHandler
    * Process the csv records to get them in a readable version.
    * 
    */
-  public function processCsv() {
+  public function processCsv()
+  {
     $importData = [];
     // get the current csvStructure
     $csvStructure = $this->configClass->getConfig('csv_structure');
@@ -92,12 +94,6 @@ class CsvHandler
       if ($row >= $csvProcessFromRow) {
         if (isset($csvStructure[$row])) {
           foreach($record as $col=>$value) {
-            if ($col
-                >= $this->configClass->getConfig(
-                    'csv_process_until_column', false, 42)) {
-              break;
-            }
-            // the first columns are to ignore, because this is the header
             if (!in_array($col, $csvIgnoreCols)) {
               $value = trim($value);
               // integrate the column in the json (what we do: switch from left header to upper header)
@@ -107,14 +103,13 @@ class CsvHandler
                 foreach($values as $val) {
                   $importData[$col][$csvStructure[$row]][] = trim($val);
                 }
-              }
-              elseif (strtoupper($value) == strtoupper('N/A')) {
+              } elseif (strtoupper($value) == strtoupper('N/A')) {
                 // Ignore N/A values, but don't unset it, set an empty value
                 $importData[$col][$csvStructure[$row]] = '';
-              }
-              else {
+              } else {
                 $importData[$col][$csvStructure[$row]] = trim($value);
               }
+            }
           }
         }
       }

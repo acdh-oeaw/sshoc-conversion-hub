@@ -1,33 +1,60 @@
 {
   "csv_import_file": "data/import/conversion_services.csv",
-  "csv_import_file_header": true,
-  "csv_ignore_cols": [],
+  "csv_import_file_has_header": true,
+  "csv_process_from_row": 13,
   "csv_structure":
   {
-    "6": "sourceId",
-    "7": "sourceItemId",
-    "8": "persistentId",
-    "11": "category",
-    "13": "label",
-    "14": "description",
-    "16": "hasContributor",
-    "18": "accessibleAt",
-    "19": "wikidata-id",
-    "20": "repository-url",
-    "21": "media",
-    "24": "relatedItems",
-    "25": "tadirah-activity",
-    "26": "keyword",
-    "27": "language",
-    "28": "see-also",
-    "29": "thumbnail",
-    "32": "license",
-    "33": "terms-of-use",
-    "49": "dateLastUpdated",
-    "50": "dateCreated",
-    "53": "conference",
-    "56": "pages",
-    "60": "year",
-    "62": "publisher"
+    "3": "title",
+    "5": "url",
+    "6": "description",
+    "7": "community",
+    "8": "invocation"
+  }
+
+  "csv_ignore_cols": [],
+  "csv_strict_compare": false,
+  "merge_strict_compare": false,
+  "add_recommended": true,
+  "source_label": "Recommended Items",
+  "source_url": "https://docs.google.com/spreadsheets/d/1aJgvbtQLOX3T1h6UDpxAtrlKTqDlXQC3gCjTHIhJw5M/edit",
+  "source_template": "https://marketplace.sshoc.eu/recommended/{source-item-id}",
+  "csv_structure_ignore":
+  {
+    "10": "sourceUrl",
+    "12": "source",
+    "15": "actorRole",
+    "17": "actorId",
+    "22": "mediaCaption",
+    "23": "relationType",
+    "30": "discipline",
+    "35": "version",
+    "51": "extent",
+    "57": "publication-type",
+    "63": "object-format"
   },
+  "registered_categories":
+  {
+    "tool": "tool-or-service",
+    "tool-service": "tool-or-service",
+    "software": "tool-or-service",
+    "service": "tool-or-service",
+    "tools & services": "tool-or-service",
+    "training material": "training-material",
+    "tutorial": "training-material",
+    "paper": "training-material",
+    "data-catalogue": "dataset",
+    "dataset": "dataset",
+    "workflow": "workflow",
+    "publication": "publication"
+  },
+  "categories_endpoint":
+  {
+    "tool-or-service": "tools-services",
+    "publication": "publications",
+    "training-material": "training-materials",
+    "workflow": "workflows",
+    "dataset": "datasets"
+  }
+}
+
 }

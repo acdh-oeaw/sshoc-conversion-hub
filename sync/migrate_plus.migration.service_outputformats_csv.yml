@@ -1,18 +1,18 @@
-uuid: b6a7dbcf-1032-47f4-bd0c-d92fe59a2ff5
+uuid: 47eb5eeb-199a-4569-af9c-2126f304b9b7
 langcode: en
 status: true
 dependencies: {  }
-id: source_inputformats_csv
+id: service_outputformats_csv
 class: null
 field_plugin_method: null
 cck_plugin_method: null
 migration_tags:
-  - 'Inputformats data'
-migration_group: source_data
-label: 'Migrate inputformats tags from services CSV'
+  - 'Outputformats data'
+migration_group: service_data
+label: 'Migrate outputformats tags from services CSV'
 source:
   plugin: csv
-  path: 'public://inputformats.csv'
+  path: 'public://outputformats.csv'
   delimiter: ','
   enclosure: '"'
   header_row_count: 1

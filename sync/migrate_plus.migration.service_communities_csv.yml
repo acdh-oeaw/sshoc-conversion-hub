@@ -1,18 +1,18 @@
-uuid: 7cec04dc-eaaa-42a4-a268-d88047e46771
+uuid: 90708e89-3913-4884-bd34-e9ffe4e225c2
 langcode: en
 status: true
 dependencies: {  }
-id: source_outputformats_csv
+id: service_communities_csv
 class: null
 field_plugin_method: null
 cck_plugin_method: null
 migration_tags:
-  - 'Outputformats data'
-migration_group: source_data
-label: 'Migrate outputformats tags from services CSV'
+  - 'Communities data'
+migration_group: service_data
+label: 'Migrate communities tags from services CSV'
 source:
   plugin: csv
-  path: 'public://outputformats.csv'
+  path: 'public://communities.csv'
   delimiter: ','
   enclosure: '"'
   header_row_count: 1
@@ -36,5 +36,5 @@ process:
     default_value: basic_html
 destination:
   plugin: 'entity:taxonomy_term'
-  default_bundle: formats
+  default_bundle: communities
 migration_dependencies: null

@@ -5,7 +5,6 @@ dependencies:
   config:
     - field.storage.node.field_output_format
     - node.type.solution
-    - taxonomy.vocabulary.formats
 id: node.solution.field_output_format
 field_name: field_output_format
 entity_type: node
@@ -19,8 +18,7 @@ default_value_callback: ''
 settings:
   handler: 'default:taxonomy_term'
   handler_settings:
-    target_bundles:
-      formats: formats
+    target_bundles: {  }
     sort:
       field: name
       direction: asc

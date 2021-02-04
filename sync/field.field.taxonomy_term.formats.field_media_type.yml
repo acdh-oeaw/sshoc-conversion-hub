@@ -1,0 +1,19 @@
+uuid: c555606f-7a56-49f7-95fd-a49c10ed73c2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_media_type
+    - taxonomy.vocabulary.formats
+id: taxonomy_term.formats.field_media_type
+field_name: field_media_type
+entity_type: taxonomy_term
+bundle: formats
+label: 'Media type'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

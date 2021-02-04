@@ -67,7 +67,7 @@ process:
       delimiter: '|'
     -
       plugin: migration_lookup
-      migration: source_communities_csv
+      migration: service_communities_csv
   field_invocation_type:
     -
       plugin: skip_on_empty
@@ -78,7 +78,7 @@ process:
       delimiter: '|'
     -
       plugin: migration_lookup
-      migration: source_invocations_csv
+      migration: service_invocations_csv
   field_input_format:
     -
       plugin: skip_on_empty
@@ -89,7 +89,7 @@ process:
       delimiter: '|'
     -
       plugin: migration_lookup
-      migration: source_inputformats_csv
+      migration: service_inputformats_csv
   field_output_format:
     -
       plugin: skip_on_empty
@@ -100,10 +100,15 @@ process:
       delimiter: '|'
     -
       plugin: migration_lookup
-      migration: source_outputformats_csv
+      migration: service_outputformats_csv
   type:
     plugin: default_value
     default_value: solution
 destination:
   plugin: 'entity:node'
-migration_dependencies: null
+migration_dependencies:
+  required:
+    - service_communities_csv
+    - service_invocations_csv
+    - service_inputformats_csv
+    - service_outputformats_csv

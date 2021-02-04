@@ -48,15 +48,6 @@ class IngestSpreadsheet
         $this->configClass, $this->apiHandler, $this->vocabularyHandler);
   }
   
-  private function connectToApi()
-  {
-    // Get the vocabularies that are necessary for the harmonizing
-    $this->vocabularyHandler->setVocabulary(
-        'licenses', $this->apiHandler->getVocabulary('licenses'));
-    $this->vocabularyHandler->setVocabulary(
-        'license-types', $this->apiHandler->getVocabulary('license-types'));
-  }
-
   public function runIngest()
   {
     Logger::log('load csv data');

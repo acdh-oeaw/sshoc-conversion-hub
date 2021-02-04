@@ -1,0 +1,108 @@
+Draft of taxonomy of formats,,,,,
+based on data from solutions-list,,,,,
+,,,,,
+group to be used as broader taxonomy term,specific mime-type,format as in table (parsed),,,evidence
+,,,,,
+,,,,,
+,,,,,
+RDF,n/a,RDF,,,
+,application/rdf+xml,RDF/XML,,,
+,text/turtle,RDF turtle,,,
+,text/plain,ntriples,,,
+,,,,,
+metadata,,,,,
+,application/dc+xml,Dublin Core,,,
+,,MARC,,,
+,application/marcxml+xml,MARC21 (XML),,,
+,application/vnd.ead3+xml,EAD3,,,
+,application/vnd.datacite.datacite+xml;version=2.2,DataCite 2.2.,,,
+,application/vnd.ddi+xml,DDI,,,https://git.gesis.org/stardat/stardat-ddi-lifecycle/commit/f2a94da8f4f66d47299b86487fd4aa60d57fcea6
+,application/vnd.ddi+xml;version=1.2.2,DDI Codebook 1.2.2,,,
+,application/vnd.ddi+xml;version=2.0,DDI Codebook 2.0,,,
+,application/vnd.ddi+xml;version=2.5,DDI Codebook 2.5,,,
+,application/vnd.ddi+xml;version=3.1,DDI Lifecycle 3.1,,,
+,application/vnd.ddi+xml;version=3.2,DDI Lifecycle 3.2,,,
+,application/vnd.ddi-ascii,DDI+ASCII,,,
+,application/x-cmdi+xml,CMDI,,,
+,application/prs.paqu-metadata,PaQu metadata,,,new
+,,,,,
+"text, document",,,,,
+,text/xml,XML,,,
+,text/plain,TXT,,,
+,application/xhtml+xml,XHTML,,,
+,text/html,HTML,,,
+,application/pdf,PDF,,,
+,application/vnd.ms-word,DOC,,,http://help.dottoro.com/lapuadlp.php
+,application/vnd.openxmlformats-officedocument.wordprocessingml.documen,DOCX,,,
+,application/tei+xml,TEI,,,"TEI - tei-xml application/tei+xml RFC6129] (Romary, Lundberg)"
+,application/rtf,RTF,,,
+,application/x-latex,LaTeX,,,
+,application/epub+zip,ePub,,,
+,,,,,
+,,,,,
+presentation,,,,,
+,,PPT,,,
+,,PPTX,,,
+,,ODP,,,
+,,ODS,,,
+,,ODT,,,
+,,SXC,,,
+,,SXI,,,
+table,,,,,
+,text/csv,CSV,,,iana
+,application/vnd.ms-excel,XLS,,,iana
+,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,XLSX,,,dottore
+,text/tab-separated-values,TSV,,,iana
+,application/vnd.oasis.opendocument.spreadsheet,ODS,,,iana
+,application/x-sas-data,SAS,,,https://tika.apache.org/1.21/formats.html
+,application/x-stata,STATA,,,https://catalog.data.gov/dataset?bureauCode=184%3A03&res_format=application%2Fx-stata
+,text/prs.plain.fixed-format,fixed-format-ascii,,,"http://www.nationalarchives.gov.uk/PRONOM/x-fmt/110, "
+,,,,,
+,,,,,
+,,,,,
+audio,audio/*,,,,
+,,,,,
+video,video/*,,,,
+,,,,,
+image formats,,,,,
+,?,images of scans,,,
+,image/gif,GIF,,,
+,image/jpeg,JPG,,,
+,image/tiff,TIFF,,,
+,,,,,
+linguistic annotation formats,,,,,
+,application/tei+xml,TEI,,,"TEI - tei-xml application/tei+xml RFC6129] (Romary, Lundberg)"
+,text/x-chat,CHAT,,,https://archive.mpi.nl/tla/accepted-file-formats
+,text/x-eaf+xml,EAF,,,https://archive.mpi.nl/tla/accepted-file-formats
+,application/folia+xml,Folia,,,https://www.ru.nl/clst/clarin-centre/preferred-recommended-data-formats//
+,application/tei+xml,TEI,,,
+,application/tcf+xml,TCF,,,https://weblicht.sfs.uni-tuebingen.de/weblichtwiki/index.php/The_TCF_Format
+,text/praat-textgrid,TextGrid,,,https://archive.mpi.nl/tla/accepted-file-formats
+,,,,,
+OCR,,,,,
+,text/vnd.hocr+html,hOCR,,,
+,application/alto+xml,ALTO,,,
+,,,,,
+,,,,,
+scripts,,,,,
+,,R,,,
+,,SQL,,,
+,application/mathematica,Mathematica,,,https://www.iana.org/assignments/media-types/media-types.xhtml#Wolfram
+,,,,,
+statistics,,,,,
+,application/x-spss-sav,SPSS (.sav),,,https://www.loc.gov/preservation/digital/formats/fdd/fdd000469.shtml
+,application/x-spss-spv,SPSS (.spv),,,https://talar.sfb833.uni-tuebingen.de/datamanagement/
+,NA,Stat/Transfer,,,
+,application/x-stata,Stata (.dta),,,https://catalog.data.gov/dataset?bureauCode=184%3A03&res_format=application%2Fx-stata
+,application/x-sas-data,SAS,,,https://tika.apache.org/1.21/formats.html
+,appication/vnd.sta,Statistica,,,
+,,,,,
+scripts & misc.,,,,,
+,application/mathematica,Mathematica,,,
+,application/x-R,R,,,
+,,,,,
+,,,,,
+,,OSM Geocoordinates,,,
+,,,,,
+,,,,,
+,,Triple-S,,,

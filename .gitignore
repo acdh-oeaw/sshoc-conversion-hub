@@ -6,3 +6,4 @@
 .gitattributes
 composer.json
 composer.lock
+/nbproject/

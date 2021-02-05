@@ -37,25 +37,24 @@ use League\Csv\Reader;
 
 class CsvHandler
 {
-  private $configClass = null;
-
   private $csvFile = '';
   private $hasHeader = false;
+  private $structure = [];
+  private $processFromRow = 0;
   
   private $csvRecords = [];
 
-  public function __construct($configClass, $csvFile, $hasHeader)
+  public function __construct($csvFile, $hasHeader, $structure, $processFromRow)
   {
-    $this->configClass = $configClass;
-
     if (!file_exists($csvFile)) {
-      Logger::log('Import file $csvFile is missing. '
+      Logger::log("Import file $csvFile is missing. "
           . 'Not possible to run the script without import data.',
           __CLASS__.'.'.__FUNCTION__, true);
     }
     $this->csvFile = $csvFile;
-
     $this->hasHeader = $hasHeader;
+    $this->structure = $structure;
+    $this->processFromRow = $processFromRow;
   }
   
   /**
@@ -70,7 +69,6 @@ class CsvHandler
     if($this->hasHeader) {
       $csv->setHeaderOffset(0);
     }
-    print $this->csvFile;
     $this->csvRecords = $csv->getRecords();
     if (empty($this->csvRecords)) {
       Logger::log('Import file '. $this->csvFile . ' does not have any data. '
@@ -81,36 +79,50 @@ class CsvHandler
 
   /**
    * Process the csv records to get them in a readable version.
-   * 
+   * This process method is column oriented (values are in the columns).
    */
   public function processCsv()
   {
     $importData = [];
-    // get the current csvStructure
-    $csvStructure = $this->configClass->getConfig('csv_structure');
-    $csvProcessFromRow = $this->configClass->getConfig('csv_process_from_row');
 
     foreach($this->csvRecords as $row=>$record) {
-      if ($row >= $csvProcessFromRow) {
-        if (isset($csvStructure[$row])) {
-          foreach($record as $col=>$value) {
-            if (!in_array($col, $csvIgnoreCols)) {
-              $value = trim($value);
+      // Ignore rows due to general information not relevant to process.
+      if ($row >= $this->processFromRow) {
+        // Go through the structure and gather the data.
+        $dataComplete = true;
+        $data = [];
+        foreach($this->structure as $col=>$colTitle) {
+          // Check if data is set, otherwise ignore.
+          // Title needs to be valid, otherwise give an error.
+          // @todo: define in configuration what values are necessary.
+          if (isset($record[$col])) {
+            if (empty($record[$col]) && $colTitle == 'title') {
+              /*Logger::log('Import file '. $this->csvFile
+                  . " does have not filled data. Row: $row",
+                  __CLASS__.'.'.__FUNCTION__);*/
+              $dataComplete = false;
+            } else {
+              $value = trim($record[$col]);
               // integrate the column in the json (what we do: switch from left header to upper header)
               // if there is a ' ; ' in the value, then it is multivalue - create an array
               if (strpos($value, ' ; ') !== FALSE) {
                 $values = explode(' ; ', $value);
                 foreach($values as $val) {
-                  $importData[$col][$csvStructure[$row]][] = trim($val);
+                  $data[$colTitle][] = trim($val);
                 }
-              } elseif (strtoupper($value) == strtoupper('N/A')) {
-                // Ignore N/A values, but don't unset it, set an empty value
-                $importData[$col][$csvStructure[$row]] = '';
               } else {
-                $importData[$col][$csvStructure[$row]] = trim($value);
+                $data[$colTitle][] = $value;
               }
             }
+          } else {
+            Logger::log('Import file '. $this->csvFile
+              . " does have not set data, row: $row",
+              __CLASS__.'.'.__FUNCTION__, true);
+            $dataComplete = false;
           }
+        }
+        if ($dataComplete) {
+          $importData[] = $data;
         }
       }
     }

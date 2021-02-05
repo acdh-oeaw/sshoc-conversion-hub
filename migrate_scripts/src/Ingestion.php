@@ -32,20 +32,37 @@ class IngestSpreadsheet
 {
   private $configClass = null;
   private $csvHandler = null;
+  private $vocabularyHandlerFormats = null;
   private $dataHandler = null;
 
   public function __construct($configClass)
   {
     $this->configClass = $configClass;
 
-    $csvFile = $this->configClass->getConfig('csv_import_file', true);
-    $csvFileHeader = $this->configClass->getConfig(
-        'csv_import_file_has_header', true);
     $this->csvHandler = new CsvHandler(
-        $this->configClass, $csvFile, $csvFileHeader);
+      $this->configClass->getConfig('csv_import_file', true),
+      $this->configClass->getConfig('csv_import_file_has_header', true),
+      $this->configClass->getConfig('csv_import_file_structure'),
+      $this->configClass->getConfig('csv_import_file_process_from_row')
+    );
+
+    // Prepare the formats vocabulary
+    $csvHandlerFormats = new CsvHandler(
+      $this->configClass->getConfig('csv_vocabulary_formats_file', true),
+      $this->configClass->getConfig(
+          'csv_vocabulary_formats_file_has_header', true),
+      $this->configClass->getConfig(
+          'csv_vocabulary_formats_file_structure'),
+      $this->configClass->getConfig(
+          'csv_vocabulary_formats_file_process_from_row')
+    );
+    $csvHandlerFormats->loadCsvData();
+    $this->vocabularyHandlerFormats = new VocabularyHandler('formats');
+    $this->vocabularyHandlerFormats->loadVocabularyFormats(
+        $csvHandlerFormats->processCsv());
 
     $this->dataHandler = new DataHandler(
-        $this->configClass, $this->apiHandler, $this->vocabularyHandler);
+        $this->configClass, $this->vocabularyHandlerFormats);
   }
   
   public function runIngest()
@@ -55,27 +72,14 @@ class IngestSpreadsheet
     
     Logger::log('process csv data');
     $importData = $this->csvHandler->processCsv();
-
+    
     Logger::log('validate csv data');
     $this->dataHandler->checkImportData($importData);
-    
+
     Logger::log('harmonize data for API');
     $this->dataHandler->harmonizeData();
-    
-    Logger::log('find updates');
-    $this->dataHandler->checkForExistingData();
-    
-    Logger::log('add recommended');
-    $this->dataHandler->addRecommended();
-    
-    Logger::log('prepare data for compare');
-    $this->dataHandler->prepareDataForCompare();
-
-    Logger::log('merge differences');
-    $this->dataHandler->mergeUpdates();
-
-    Logger::log('prepare data for ingest');
-    $this->dataHandler->prepareDataForIngest();
+    $this->dataHandler->showVocabularyData();
+    return;
 
     Logger::log('ingest data');
     $this->dataHandler->ingestData();

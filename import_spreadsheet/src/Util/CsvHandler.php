@@ -1,5 +1,6 @@
 <?php
 // src/Util/CsvHandler.php
+
 /**
  * @Author: Klaus Illmayer, klaus.illmayer@oeaw.ac.at
  * 
@@ -28,29 +29,41 @@
  */
 namespace App\Util;
 
-/**
- * Handling of CSV files.
- */
-
 use Psr\Log\LoggerInterface;
 // Relying on external library for CSV reading (install with composer)
 use League\Csv\Reader;
+use League\Csv\Writer;
 
+/**
+ * Handling of CSV files.
+ */
 class CsvHandler
 {
   private $logger;
 
   private $csvFile = '';
   private $hasHeader = false;
-  private $structure = [];
   private $processFromRow = 0;
-  private $initiated = false;
+  private $multivalSeparator = ' ; ';
+  private $structure = [];
   
   private $csvRecords = [];
-
-  public function __construct(LoggerInterface $logger)
+  
+  public function __construct($csvImportFile, $csvImportFileHasHeader,
+      $csvImportFileProcessFromRow, $csvImportFileMultivalSeparator,
+      $csvImportFileStructure,
+      LoggerInterface $logger)
   {
     $this->logger = $logger;
+    $this->csvFile = $csvImportFile;
+    if (!file_exists($this->csvFile)) {
+      $this->logger->critical("Import file $this->csvFile is missing.");
+    }
+
+    $this->hasHeader = $csvImportFileHasHeader;
+    $this->processFromRow = $csvImportFileProcessFromRow;
+    $this->multivalSeparator = $csvImportFileMultivalSeparator;
+    $this->structure = $csvImportFileStructure;
   }
 
   /**
@@ -59,27 +72,98 @@ class CsvHandler
    * @param bool $hasHeader
    * @return array
    */
-  public function loadCsvData($csvFile, $hasHeader, $structure, $processFromRow)
+  public function loadCsvData()
   {
-    $this->csvFile = $csvFile;
-    $this->hasHeader = $hasHeader;
-    $this->structure = $structure;
-    $this->processFromRow = $processFromRow;
-    if (!file_exists($csvFile)) {
-      $this->logger->critical("Import file $csvFile is missing.");
-    }
-    $this->initiated = true;
-
     $csv = Reader::createFromPath($this->csvFile, 'r');
     if($this->hasHeader) {
       $csv->setHeaderOffset(0);
     }
     $this->csvRecords = $csv->getRecords();
     if (empty($this->csvRecords)) {
-      Logger::log('Import file '. $this->csvFile . ' does not have any data. '
-          . 'Not possible to run the script without import data.',
-          __CLASS__.'.'.__FUNCTION__, true);
+      $this->logger->critical('Import file '. $this->csvFile
+          . ' does not have any data.');
     }
+  }
+  
+  function handleArrayCsv($convArray) {
+    $conv = '';
+    if (!empty($convArray)) {
+      if (is_array($convArray)) {
+        $conv = implode('|', $convArray); // assuming that | is not used in any of the terms
+      }
+    }
+    return $conv;
+  }
+
+  function writeCSVData(array $importData, string $csvFileName) {
+    $writer = Writer::createFromPath($csvFileName, 'w+');
+    $writeData = [];
+    foreach($importData as $row=>$data) {
+      $line = [];
+      foreach($data as $tmp=>$column) {
+        if (is_array($column)) {
+          $line[] = $this->handleArrayCsv($column);
+        } else {
+          $line[] = $column;
+        }
+      }
+      if (!empty($line)) {
+        $writeData[] = $line;
+      }
+    }
+    $writer->insertAll($writeData);
+  }
+
+  /**
+   * Processes the value from a csv.
+   * Most important: look for multivalues separated (defined in config for wp3)
+   * @param string $valueCsv
+   * @return array
+   */
+  private function getValueFromCsv(string $valueCsv):array
+  {
+    $processedVal = [];
+    $value = trim($valueCsv);
+    // Integrate the column in the json
+    // (what we do: switch from left header to upper header)
+    // if there is a separator in the value, then it is multivalue
+    // - create an array
+    if (strpos($value, $this->multivalSeparator) !== FALSE) {
+      $multiValues = explode($this->multivalSeparator, $value);
+      foreach($multiValues as $singleValue) {
+        $processedVal[] = trim($singleValue);
+      }
+    } else {
+      $processedVal[] = $value;
+    }
+    return $processedVal;
+  }
+  
+  /**
+   * Check if the url is valid one. The method handles single and multi values.
+   * 
+   * @param $url
+   * @return bool
+   */
+  private function isTypeUrlValid($url):bool
+  {
+    // @todo: put this method in a more generic class
+    if (!empty($url)) {
+      // it can happen, that url does have more than one value,
+      // so convert all values to an array - this is only to check the values
+      // so no changes are necessary
+      if (!is_array($url)) {
+        $url = [$url];
+      }
+      foreach($url as $singleUrl) {
+        // If only one url is not valid, return false.
+        if (!filter_var($singleUrl, FILTER_VALIDATE_URL)) {
+          $this->logger->info("url $singleUrl not valid");
+          return false;
+        }
+      }
+    }
+    return true;
   }
 
   /**
@@ -88,50 +172,71 @@ class CsvHandler
    */
   public function processCsv()
   {
-    if (!$this->initiated) {
-      // print error - log error
-      return;
-    }
     $importData = [];
 
     foreach($this->csvRecords as $row=>$record) {
       // Ignore rows due to general information not relevant to process.
       if ($row >= $this->processFromRow) {
         // Go through the structure and gather the data.
-        $dataComplete = true;
-        $data = [];
-        foreach($this->structure as $col=>$colTitle) {
+        foreach($this->structure as $map=>$colData) {
           // Check if data is set, otherwise ignore.
-          // Title needs to be valid, otherwise give an error.
-          // @todo: define in configuration what values are necessary.
-          if (isset($record[$col])) {
-            if (empty($record[$col]) && $colTitle == 'title') {
-              /*Logger::log('Import file '. $this->csvFile
-                  . " does have not filled data. Row: $row",
-                  __CLASS__.'.'.__FUNCTION__);*/
-              $dataComplete = false;
-            } else {
-              $value = trim($record[$col]);
-              // integrate the column in the json (what we do: switch from left header to upper header)
-              // if there is a ' ; ' in the value, then it is multivalue - create an array
-              if (strpos($value, ' ; ') !== FALSE) {
-                $values = explode(' ; ', $value);
-                foreach($values as $val) {
-                  $data[$colTitle][] = trim($val);
-                }
-              } else {
-                $data[$colTitle][] = $value;
+          if (empty($colData['type'])) {
+            throw new \Exception("[$map] No type set in structure.");
+          }
+          $colType = $colData['type'];
+          if (empty($colData['name'])) {
+            throw new \Exception("[$map] No name set in structure.");
+          }
+          $colName = $colData['name'];
+
+          // identifier is a specific type that may not be available in the csv
+          // in such cases, set the row line as identifier
+          if (($colType == 'identifier') && (!isset($colData['column']))) {
+            $importData[$row][$colName] = $row;
+          } else {
+            // We need the column from where to get the data
+            if (!isset($colData['column'])) {
+              throw new \Exception("[$map] No column set in structure.");
+            }
+            $col = $colData['column'];
+
+            if (!empty($colData['necessary'])) {
+              // There are some necessary fields, that need to be here
+              if (empty($record[$col])) {
+                throw new \Exception("Column $colName is necessary but not "
+                    . "available in import file $this->csvFile at row $row");
               }
             }
-          } else {
-            Logger::log('Import file '. $this->csvFile
-              . " does have not set data, row: $row",
-              __CLASS__.'.'.__FUNCTION__, true);
-            $dataComplete = false;
+
+            if (isset($record[$col])) {
+              // @todo: don't set empty values?
+              $data = $this->getValueFromCsv($record[$col]);
+
+              // If a type cast is set in the config, check if this is valid
+              switch($colType) {
+                case 'url':
+                  if (!$this->isTypeUrlValid($data)) {
+                    //throw new \Exception("Url not valid "
+                    //    . "in import file $this->csvFile at row $row");
+                    $this->logger->critical("Url not valid "
+                        . "in import file $this->csvFile at row $row");
+                  } else {
+                    $importData[$row][$colName] = $data;
+                  }
+                  break;
+                case 'string':
+                case 'vocabulary':
+                  $importData[$row][$colName] = $data;
+                  break;
+              }
+            } else {
+              // If a field is not necessary, it still needs to be set
+              // as it will go into the export file.
+              // @todo: maybe set it automatically as an empty value?
+              throw new \Exception('Import file '. $this->csvFile
+                . " does have not set data, row: $row");
+            }
           }
-        }
-        if ($dataComplete) {
-          $importData[] = $data;
         }
       }
     }

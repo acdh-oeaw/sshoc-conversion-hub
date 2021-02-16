@@ -6,30 +6,50 @@ parameters:
   app.csv_import_file_multival_separator: ' ; '
   app.csv_import_file_structure:
     "Id":
-      name: "id"
       type: "identifier"
+      ignoreImport: true
     "Title":
-      name: "title"
       column: 3
-      necessary: true
       type: "string"
+      necessary: true
     "Accesspoints":
-      name: "url"
       column: 5
       type: "url"
     "Description":
-      name: "description"
       column: 6
       type: "string"
     "Communities":
-      name: "community"
       column: 7
       type: "vocabulary"
     "Invocations":
-      name: "invocation"
       column: 8
       type: "vocabulary"
   app.csv_export_file: "data/convert/conversions.csv"
+  # vocabulary invocations settings
+  app.csv_vocab_invocations_process_from_row: 0
+  app.csv_vocab_invocations_multival_separator: ' ; '
+  app.csv_vocab_invocations_structure:
+    "Id":
+      type: "identifier"
+      ignoreImport: true
+    "Name":
+      column: 0
+      type: "string"
+      necessary: true
+  app.csv_vocab_invocations_export_file: "data/convert/invo.csv"
+  # vocabulary communities settings
+  app.csv_vocab_communities_process_from_row: 0
+  app.csv_vocab_communities_multival_separator: ' ; '
+  app.csv_vocab_communities_structure:
+    "Id":
+      type: "identifier"
+      ignoreImport: true
+    "Name":
+      column: 0
+      type: "string"
+      necessary: true
+  app.csv_vocab_communities_export_file: "data/convert/comm.csv"
+  # vocabulary formats settings
   app.csv_vocab_formats_file: "data/import/formats_list.csv"
   app.csv_vocab_formats_file_has_header: false
   app.csv_vocab_formats_file_process_from_row: 8

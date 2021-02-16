@@ -46,9 +46,47 @@ class DataHandler
     $this->logger = $logger;
   }
   
+  public function setImportData(array $importData)
+  {
+    $this->importData = $importData;
+    $this->isImportDataValid();
+  }
+  
   public function getImportData()
   {
     return $this->importData;
+  }
+  
+  public function getVocabulary(string $vocabularyName,
+      array $vocabularyStructure): array
+  {
+    if (!isset($this->vocabularies[$vocabularyName])) {
+      throw new \Exception("There is no vocabulary called $vocabularyName.");
+    }
+    // this is a little trick: taking the zero column from the vocab structure
+    // to know how it should be called in the structure.
+    // this is necessary for reusing the transformhandler-method.
+    /*$dataName = '';
+    foreach($vocabularyStructure as $colName=>$colData) {
+      if (isset($colData['column']) &&  ($colData['column'] === 0)) {
+        $dataName = $colName;
+        break;
+      }
+    }
+    if (empty($dataName)) {
+      throw new \Exception("Vocabulary structure of $vocabularyName "
+          . "misses column zero.");
+    }*/
+    $vocabulary = [];
+    foreach($this->vocabularies[$vocabularyName] as $key => $value) {
+      /*$vocabulary[$key] = [
+        $dataName => $value
+      ];*/
+      $vocabulary[$key] = [
+        0 => $value
+      ];
+    }
+    return $vocabulary;
   }
   
   private function isImportDataValid():bool
@@ -68,12 +106,6 @@ class DataHandler
     return true;
   }
 
-  public function setImportData(array $importData)
-  {
-    $this->importData = $importData;
-    $this->isImportDataValid();
-  }
-  
   /*public function setVocabularyData($colName, $vocabulary)
   {
     // importData needs to be set via the setter
@@ -138,11 +170,7 @@ class DataHandler
     $this->isImportDataValid();
 
     foreach($this->importData as $data) {
-      foreach($structure as $map=>$colData) {
-        if (!isset($colData['name'])) {
-          throw new \Exception("[$map] No name set in structure.");
-        }
-        $colName = $colData['name'];
+      foreach($structure as $colName=>$colData) {
         if (($colData['type'] == 'vocabulary') &&
             (!empty($data[$colName]))) {
           $values = $data[$colName];

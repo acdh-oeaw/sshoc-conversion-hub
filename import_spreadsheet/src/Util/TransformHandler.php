@@ -115,6 +115,15 @@ class TransformHandler
       // Ignore rows due to general information not relevant to process.
       if ($row >= $processFromRow) {
         // Go through the structure and gather the data.
+        // there are some settings to be aware
+        // there can be necessary fields (using "necessary": true), if such a
+        // field is empty, raise an exception
+        $necessaryNotGiven = false;
+        // there can be skipEmpty fields (using "skipEmpty": true), if such a
+        // field is empty, don't write the data
+        $skipIsSet = false;
+        // temporary field that is written if no missing necessary or skipEmpty
+        $writeData = [];
         foreach($structure as $colName=>$colData) {
           // Check if data is set, otherwise ignore.
           if (empty($colData['type'])) {
@@ -128,7 +137,7 @@ class TransformHandler
             // identifier is a specific type that may not be available in the csv
             // in such cases, set the row line as identifier
             if ($colType == 'identifier') {
-              $importData[$row][$colName] = $row;
+              $writeData[$colName] = $row;
             }
           } else {
             // We need the column from where to get the data
@@ -137,10 +146,28 @@ class TransformHandler
             }
             $col = $colData['column'];
 
+            if (!empty($colData['skipEmpty'])) {
+              // if there is skipEmpty set, then ignore the dataset
+              // @todo: currently the combination of necessary and skipEmpty
+              // may lead to unexpected behaviour. if a field is necessary
+              // and not set and called before the field with skipEmpty, then
+              // there will be an exception. as for the current data no
+              // such combination exists, i leave it as it is but it is
+              // not a good implementation (fix it later)
+              if (empty($record[$col])) {
+                // break this for so that the next dataset can be processed.
+                // don't give a warning as there could be many rows involved.
+                $skipIsSet = true;
+                break;
+              }
+            }
             if (!empty($colData['necessary'])) {
               // There are some necessary fields, that need to be here
               if (empty($record[$col])) {
-                throw new \Exception("Column $colName is necessary but not "
+                $necessaryNotGiven = true;
+                // don't break as there could be a skipEmpty setting that
+                // would negate the necessary field. but give an error.
+                $this->logger->critical("Column $colName is necessary but not "
                     . "available in records at row $row");
               }
             }
@@ -170,7 +197,7 @@ class TransformHandler
                     . " in column $colName at row $row");
               }
               if ($setData) {
-                $importData[$row][$colName] = $data;
+                $writeData[$colName] = $data;
               }
             } else {
               // If a field is not necessary, it still needs to be set
@@ -179,6 +206,17 @@ class TransformHandler
               throw new \Exception("Data in row $row doesn't have column $col");
             }
           }
+        }
+        if ($skipIsSet) {
+          // don't write the data, go immediately to the next dataset
+          continue;
+        } elseif ($necessaryNotGiven) {
+          // raise an error that a necessary field is not set.
+          throw new \Exception("A necessary field is not "
+              . "available in records at row $row");
+        } else {
+          // write the data
+          $importData[$row] = $writeData;
         }
       }
     }

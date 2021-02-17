@@ -1,12 +1,12 @@
-Id,Name,Description
-1,"source code",
-2,"web application",
-3,"local application",
-4,library,
-5,"RESTful webservice",
-6,"command line",
-7,script,
-8,"instruction page",
-9,"source code/web application",
-10,"source code/RESTful webservice",
-11,"command processor",
+Id,Name
+0,"source code"
+1,"web application"
+2,"local application"
+3,library
+4,"RESTful webservice"
+5,"command line"
+6,script
+7,"instruction page"
+8,"source code/web application"
+9,"source code/RESTful webservice"
+10,"command processor"

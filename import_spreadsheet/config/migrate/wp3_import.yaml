@@ -24,7 +24,28 @@ parameters:
     "Invocations":
       column: 8
       type: "vocabulary"
-  app.csv_export_file: "data/convert/conversions.csv"
+    "inputFormat":
+      column: 13
+      type: "vocabulary"
+      "externalVocabulary": "formats"
+      # make sure that the key is in line with the setting in the vocbulary
+      "externalVocabularyKey": "Mime-type"
+    "inputFormatComment":
+      column: 14
+      type: "string"
+    "outputFormat":
+      column: 15
+      type: "vocabulary"
+      "externalVocabulary": "formats"
+      # make sure that the key is in line with the setting in the vocbulary
+      "externalVocabularyKey": "Mime-type"
+    "outputFormatComment":
+      column: 16
+      type: "string"
+    "Statuses":
+      column: 17
+      type: "vocabulary"
+  app.csv_export_file: "data/convert/services.csv"
   # vocabulary invocations settings
   app.csv_vocab_invocations_process_from_row: 0
   app.csv_vocab_invocations_multival_separator: ' ; '
@@ -36,7 +57,7 @@ parameters:
       column: 0
       type: "string"
       necessary: true
-  app.csv_vocab_invocations_export_file: "data/convert/invo.csv"
+  app.csv_vocab_invocations_export_file: "data/convert/invocations.csv"
   # vocabulary communities settings
   app.csv_vocab_communities_process_from_row: 0
   app.csv_vocab_communities_multival_separator: ' ; '
@@ -48,15 +69,33 @@ parameters:
       column: 0
       type: "string"
       necessary: true
-  app.csv_vocab_communities_export_file: "data/convert/comm.csv"
+  app.csv_vocab_communities_export_file: "data/convert/communities.csv"
+  # vocabulary statuses settings
+  app.csv_vocab_statuses_process_from_row: 0
+  app.csv_vocab_statuses_multival_separator: ' ; '
+  app.csv_vocab_statuses_structure:
+    "Id":
+      type: "identifier"
+      ignoreImport: true
+    "Name":
+      column: 0
+      type: "string"
+      necessary: true
+  app.csv_vocab_statuses_export_file: "data/convert/statuses.csv"
   # vocabulary formats settings
   app.csv_vocab_formats_file: "data/import/formats_list.csv"
   app.csv_vocab_formats_file_has_header: false
   app.csv_vocab_formats_file_process_from_row: 8
   app.csv_vocab_formats_file_multival_separator: ' ; '
   app.csv_vocab_formats_file_structure:
-    1:
-      name: "mime-type"
-    2:
-      name: "title"
-      necessary: true
+    "Id":
+      type: "identifier"
+      ignoreImport: true
+    "Name":
+      column: 2
+      skipEmpty: true
+      type: "string"
+    "Mime-type":
+      column: 1
+      type: "string"
+  app.csv_vocab_formats_file_export_file: "data/convert/formats.csv"

@@ -41,59 +41,40 @@ class CsvHandler
 {
   private $logger;
 
-  private $csvFile = '';
-  private $hasHeader = false;
-  private $processFromRow = 0;
-  private $multivalSeparator = ' ; ';
-  private $structure = [];
-  
-  private $csvRecords = [];
-  
-  public function __construct($csvImportFile, $csvImportFileHasHeader,
-      $csvImportFileProcessFromRow, $csvImportFileMultivalSeparator,
-      $csvImportFileStructure,
-      LoggerInterface $logger)
+  public function __construct(LoggerInterface $logger)
   {
     $this->logger = $logger;
-    $this->csvFile = $csvImportFile;
-    if (!file_exists($this->csvFile)) {
-      $this->logger->critical("Import file $this->csvFile is missing.");
-    }
-
-    $this->hasHeader = $csvImportFileHasHeader;
-    $this->processFromRow = $csvImportFileProcessFromRow;
-    $this->multivalSeparator = $csvImportFileMultivalSeparator;
-    $this->structure = $csvImportFileStructure;
   }
   
-  public function getCsvRecords(): array
-  {
-    return $this->csvRecords;
-  }
-
   /**
-   * Load the data from the csvFile defined in the constructor (csvFile).
+   * Load the data from the csvFile. It can have a hasHeader with the names
+   * of the columns and it can be processed from a specific row on (due to
+   * having explanations in the first rows of the spreadsheet).
    * 
-   * @param bool $hasHeader
    * @return array
    */
-  public function loadCsvData()
+  public function loadCsvData(string $csvFile, bool $hasHeader = true): array
   {
-    $csv = Reader::createFromPath($this->csvFile, 'r');
-    if($this->hasHeader) {
+    $csvRecords = [];
+    if (!file_exists($csvFile)) {
+      throw new \Exception("Import file $csvFile is missing.");
+    }
+    $csv = Reader::createFromPath($csvFile, 'r');
+    if($hasHeader) {
       $csv->setHeaderOffset(0);
     }
-    $csvRecords = $csv->getRecords();
-    if (empty($csvRecords)) {
-      $this->logger->critical('Import file '. $this->csvFile
-          . ' does not have any data.');
+    $csvData = $csv->getRecords();
+    if (empty($csvData)) {
+      throw new \Exception("Import file $csvFile has no data.");
     } else {
       // Data returned is an object, but for later processing an array is
       // necessary, therefore convert to array.
-      foreach($csvRecords as $offset => $record) {
-        $this->csvRecords[$offset] = $record;
+      // @todo: csvData may not be necessary.
+      foreach($csvData as $offset => $record) {
+        $csvRecords[$offset] = $record;
       }
     }
+    return $csvRecords;
   }
   
   function handleArrayCsv($convArray)

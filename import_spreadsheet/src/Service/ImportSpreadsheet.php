@@ -40,17 +40,19 @@ class ImportSpreadsheet
   
   public function runIngest(): string
   {
-    //$this->csvHandler->loadCsvData('test.x', true, [], 1);
     // to see this log, call it on console with -vv
-    $this->logger->info('test: using parameter: '
-        . $this->params->get('app.csv_import_file'));
+    /*$this->logger->info('test: using parameter: '
+        . $this->params->get('app.csv_import_file'));*/
     
-    $this->logger->info('Load the csv file.');
-    $this->csvHandler->loadCsvData();
+    $this->logger->info('Load the main csv file.');
+    $csvRecords = $this->csvHandler->loadCsvData(
+        $this->params->get('app.csv_import_file'),
+        $this->params->get('app.csv_import_file_has_header')
+    );
     
     $this->logger->info('Transform csv data.');
     $importData = $this->transformHandler->transformData(
-        $this->csvHandler->getCsvRecords(),
+        $csvRecords,
         $this->params->get('app.csv_import_file_process_from_row'),
         $this->params->get('app.csv_import_file_structure'),
         $this->params->get('app.csv_import_file_multival_separator')
@@ -59,32 +61,36 @@ class ImportSpreadsheet
     $this->logger->info('Set data handler.');
     $this->dataHandler->setImportData($importData);
 
-    /*$this->logger->info('Collect vocabulary communities.');
-    $communityVocabulary = new VocabularyHandler($this->logger);
-    $communityVocabulary->collectDataFromImportData($importData, 'community');
-    //print_r($communityVocabulary->getVocabularyData());
-    
-    $this->logger->info('Apply vocabulary communities.');
-    $this->dataHandler->setVocabularyData('community',
-        $communityVocabulary->getVocabularyData());
+    $this->logger->info('Load the formats vocabulary csv file.');
+    $csvFormats = $this->csvHandler->loadCsvData(
+        $this->params->get('app.csv_vocab_formats_file'),
+        $this->params->get('app.csv_vocab_formats_file_has_header')
+    );
 
-    $this->logger->info('Collect vocabulary ingestions.');
-    $ingestionVocabulary = new VocabularyHandler($this->logger);
-    $ingestionVocabulary->collectDataFromImportData($importData, 'invocation');
-    //print_r($ingestionVocabulary->getVocabularyData());
+    $this->logger->info('Transform the formats vocabulary csv data.');
+    $formatsData = $this->transformHandler->transformData(
+        $csvFormats,
+        $this->params->get('app.csv_vocab_formats_file_process_from_row'),
+        $this->params->get('app.csv_vocab_formats_file_structure'),
+        $this->params->get('app.csv_vocab_formats_file_multival_separator')
+    );
     
-    $this->logger->info('Apply vocabulary ingestions.');
-    $this->dataHandler->setVocabularyData('invocation',
-        $ingestionVocabulary->getVocabularyData());*/
-    
+    $this->logger->info('Write vocabulary formats.');
+    $this->csvHandler->writeCSVData(
+        array_keys($this->params->get('app.csv_vocab_formats_file_structure')),
+        $formatsData,
+        $this->params->get('app.csv_vocab_formats_file_export_file'));
+
+    $this->logger->info('Set the external vocabulary formats.');
+    $this->dataHandler->setExternalVocabulary('formats', $formatsData);
+
     $this->logger->info('Handle vocabularies in data.');
     $this->dataHandler->handleVocabularies(
         $this->params->get('app.csv_import_file_structure'));
     
     $this->logger->info('Prepare and write vocabulary invocations.');
     $invocations = $this->transformHandler->transformData(
-        $this->dataHandler->getVocabulary('Invocations',
-            $this->params->get('app.csv_vocab_invocations_structure')),
+        $this->dataHandler->getVocabulary('Invocations'),
         $this->params->get('app.csv_vocab_invocations_process_from_row'),
         $this->params->get('app.csv_vocab_invocations_structure'),
         $this->params->get('app.csv_vocab_invocations_multival_separator')
@@ -96,8 +102,7 @@ class ImportSpreadsheet
 
     $this->logger->info('Prepare and write vocabulary communities.');
     $communities = $this->transformHandler->transformData(
-        $this->dataHandler->getVocabulary('Communities',
-            $this->params->get('app.csv_vocab_communities_structure')),
+        $this->dataHandler->getVocabulary('Communities'),
         $this->params->get('app.csv_vocab_communities_process_from_row'),
         $this->params->get('app.csv_vocab_communities_structure'),
         $this->params->get('app.csv_vocab_communities_multival_separator')
@@ -107,6 +112,19 @@ class ImportSpreadsheet
         $communities,
         $this->params->get('app.csv_vocab_communities_export_file'));
 
+    // @todo: vocabularies handling could be done via the configuration!
+    $this->logger->info('Prepare and write vocabulary statuses.');
+    $statuses = $this->transformHandler->transformData(
+        $this->dataHandler->getVocabulary('Statuses'),
+        $this->params->get('app.csv_vocab_statuses_process_from_row'),
+        $this->params->get('app.csv_vocab_statuses_structure'),
+        $this->params->get('app.csv_vocab_statuses_multival_separator')
+    );
+    $this->csvHandler->writeCSVData(
+        array_keys($this->params->get('app.csv_vocab_statuses_structure')),
+        $statuses,
+        $this->params->get('app.csv_vocab_statuses_export_file'));
+
     //$this->dataHandler->showPartsOfData('8');
     
     $this->logger->info('Write data.');
@@ -115,8 +133,6 @@ class ImportSpreadsheet
         $this->dataHandler->getImportData(),
         $this->params->get('app.csv_export_file'));
     
-    // todo: handle the formats vocabulary!
-
     return "runIngest Service";
   }
 }

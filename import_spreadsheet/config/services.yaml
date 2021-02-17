@@ -33,11 +33,13 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
-    App\Util\CsvHandler:
-      arguments:
-        $csvImportFile: '%app.csv_import_file%'
-        $csvImportFileHasHeader: '%app.csv_import_file_has_header%'
-        $csvImportFileProcessFromRow: '%app.csv_import_file_process_from_row%'
-        $csvImportFileMultivalSeparator: '%app.csv_import_file_multival_separator%'
-        $csvImportFileStructure: '%app.csv_import_file_structure%'
+    # Just for documentation:
+    # once mapped the csvhandler directly with the config values
+    #App\Util\CsvHandler:
+    #  arguments:
+    #    $csvImportFile: '%app.csv_import_file%'
+    #    $csvImportFileHasHeader: '%app.csv_import_file_has_header%'
+    #    $csvImportFileProcessFromRow: '%app.csv_import_file_process_from_row%'
+    #    $csvImportFileMultivalSeparator: '%app.csv_import_file_multival_separator%'
+    #    $csvImportFileStructure: '%app.csv_import_file_structure%'
         

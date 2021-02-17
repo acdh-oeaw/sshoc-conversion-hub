@@ -1,7 +1,7 @@
-Id,Name,Description
-1,cross-community,
-2,CLARIN,
-3,CESSDA,
-4,DARIAH,
-5,LIBER,
-6,ERIHS,
+Id,Name
+0,cross-community
+1,CLARIN
+2,CESSDA
+3,DARIAH
+4,LIBER
+5,ERIHS

@@ -1,0 +1,72 @@
+Id,Name,Mime-type
+8,RDF/XML,application/rdf+xml
+9,"RDF turtle",text/turtle
+10,ntriples,text/plain
+13,"Dublin Core",application/dc+xml
+14,MARC,
+15,"MARC21 (XML)",application/marcxml+xml
+16,EAD3,application/vnd.ead3+xml
+17,"DataCite 2.2.",application/vnd.datacite.datacite+xml;version=2.2
+18,DDI,application/vnd.ddi+xml
+19,"DDI Codebook 1.2.2",application/vnd.ddi+xml;version=1.2.2
+20,"DDI Codebook 2.0",application/vnd.ddi+xml;version=2.0
+21,"DDI Codebook 2.5",application/vnd.ddi+xml;version=2.5
+22,"DDI Lifecycle 3.1",application/vnd.ddi+xml;version=3.1
+23,"DDI Lifecycle 3.2",application/vnd.ddi+xml;version=3.2
+24,DDI+ASCII,application/vnd.ddi-ascii
+25,CMDI,application/x-cmdi+xml
+26,"PaQu metadata",application/prs.paqu-metadata
+29,XML,text/xml
+30,TXT,text/plain
+31,XHTML,application/xhtml+xml
+32,HTML,text/html
+33,PDF,application/pdf
+34,DOC,application/vnd.ms-word
+35,DOCX,application/vnd.openxmlformats-officedocument.wordprocessingml.documen
+36,TEI,application/tei+xml
+37,RTF,application/rtf
+38,LaTeX,application/x-latex
+39,ePub,application/epub+zip
+43,PPT,
+44,PPTX,
+45,ODP,
+46,ODS,
+47,ODT,
+48,SXC,
+49,SXI,
+51,CSV,text/csv
+52,XLS,application/vnd.ms-excel
+53,XLSX,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+54,TSV,text/tab-separated-values
+55,ODS,application/vnd.oasis.opendocument.spreadsheet
+56,SAS,application/x-sas-data
+57,STATA,application/x-stata
+58,fixed-format-ascii,text/prs.plain.fixed-format
+62,"audio files",audio/*
+64,"video files",video/*
+67,"images of scans",?
+68,GIF,image/gif
+69,JPG,image/jpeg
+70,TIFF,image/tiff
+73,TEI,application/tei+xml
+74,CHAT,text/x-chat
+75,EAF,text/x-eaf+xml
+76,Folia,application/folia+xml
+77,TEI,application/tei+xml
+78,TCF,application/tcf+xml
+79,TextGrid,text/praat-textgrid
+82,hOCR,text/vnd.hocr+html
+83,ALTO,application/alto+xml
+87,R,
+88,SQL,
+89,Mathematica,application/mathematica
+92,"SPSS (.sav)",application/x-spss-sav
+93,"SPSS (.spv)",application/x-spss-spv
+94,Stat/Transfer,NA
+95,"Stata (.dta)",application/x-stata
+96,SAS,application/x-sas-data
+97,Statistica,appication/vnd.sta
+100,Mathematica,application/mathematica
+101,R,application/x-R
+104,"OSM Geocoordinates",
+107,Triple-S,

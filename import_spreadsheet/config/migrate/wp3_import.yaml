@@ -21,12 +21,16 @@ parameters:
     "Communities":
       column: 7
       type: "vocabulary"
+      # name of the vocabulary - needs to be in line with app.vocabularies
+      vocabulary: "Communities"
     "Invocations":
       column: 8
       type: "vocabulary"
+      vocabulary: "Invocations"
     "inputFormat":
       column: 13
       type: "vocabulary"
+      vocabulary: "inputFormat"
       "externalVocabulary": "formats"
       # make sure that the key is in line with the setting in the vocbulary
       "externalVocabularyKey": "Mime-type"
@@ -36,6 +40,7 @@ parameters:
     "outputFormat":
       column: 15
       type: "vocabulary"
+      vocabulary: "outputFormat"
       "externalVocabulary": "formats"
       # make sure that the key is in line with the setting in the vocbulary
       "externalVocabularyKey": "Mime-type"
@@ -45,44 +50,100 @@ parameters:
     "Statuses":
       column: 17
       type: "vocabulary"
+      vocabulary: "Statuses"
+    "PublicationDate":
+      column: 18
+      type: "string"
+    "LastModificationDate":
+      column: 19
+      type: "string"
+    "KnowledgeLevel":
+      column: 20
+      type: "vocabulary"
+      vocabulary: "KnowledgeLevels"
+    "ApplicationCategory":
+      column: 21
+      type: "vocabulary"
+      vocabulary: "Applications"
+    "ApplicationSubcategory":
+      column: 22
+      type: "vocabulary"
+      vocabulary: "Applications"
+    "Source":
+      column: 24
+      type: "string"
+    "Contacts":
+      column: 25
+      type: "string"
   app.csv_export_file: "data/convert/services.csv"
-  # vocabulary invocations settings
-  app.csv_vocab_invocations_process_from_row: 0
-  app.csv_vocab_invocations_multival_separator: ' ; '
-  app.csv_vocab_invocations_structure:
-    "Id":
-      type: "identifier"
-      ignoreImport: true
-    "Name":
-      column: 0
-      type: "string"
-      necessary: true
-  app.csv_vocab_invocations_export_file: "data/convert/invocations.csv"
-  # vocabulary communities settings
-  app.csv_vocab_communities_process_from_row: 0
-  app.csv_vocab_communities_multival_separator: ' ; '
-  app.csv_vocab_communities_structure:
-    "Id":
-      type: "identifier"
-      ignoreImport: true
-    "Name":
-      column: 0
-      type: "string"
-      necessary: true
-  app.csv_vocab_communities_export_file: "data/convert/communities.csv"
-  # vocabulary statuses settings
-  app.csv_vocab_statuses_process_from_row: 0
-  app.csv_vocab_statuses_multival_separator: ' ; '
-  app.csv_vocab_statuses_structure:
-    "Id":
-      type: "identifier"
-      ignoreImport: true
-    "Name":
-      column: 0
-      type: "string"
-      necessary: true
-  app.csv_vocab_statuses_export_file: "data/convert/statuses.csv"
-  # vocabulary formats settings
+  # vocabulary settings - internal vocabularies calculated from one data field
+  app.vocabularies:
+    # the name of the vocablary should be the same as the name of the field
+    # from where the data is generated
+    # todo: make this to an explicit connection (currently implicit)
+    "Invocations":
+      # Explicit connection to the data fields
+      data_fields: ["Invocations"]
+      csv_file_multival_separator: ' ; '
+      csv_file_structure:
+        "Id":
+          type: "identifier"
+          ignoreImport: true
+        "Name":
+          column: 0
+          type: "string"
+          necessary: true
+      csv_export_file: "data/convert/invocations.csv"
+    "Communities":
+      data_fields: ["Communities"]
+      csv_file_multival_separator: ' ; '
+      csv_file_structure:
+        "Id":
+          type: "identifier"
+          ignoreImport: true
+        "Name":
+          column: 0
+          type: "string"
+          necessary: true
+      csv_export_file: "data/convert/communities.csv"
+    "Statuses":
+      data_fields: ["Statuses"]
+      csv_file_multival_separator: ' ; '
+      csv_file_structure:
+        "Id":
+          type: "identifier"
+          ignoreImport: true
+        "Name":
+          column: 0
+          type: "string"
+          necessary: true
+      csv_export_file: "data/convert/statuses.csv"
+    "KnowledgeLevels":
+      data_fields: ["KnowledgeLevel"]
+      csv_file_multival_separator: ' ; '
+      csv_file_structure:
+        "Id":
+          type: "identifier"
+          ignoreImport: true
+        "Name":
+          column: 0
+          type: "string"
+          necessary: true
+      csv_export_file: "data/convert/knowledgelevels.csv"
+    "Applications":
+      data_fields: ["ApplicationCategory", "ApplicationSubcategory"]
+      csv_file_multival_separator: ' ; '
+      csv_file_structure:
+        "Id":
+          type: "identifier"
+          ignoreImport: true
+        "Name":
+          column: 0
+          type: "string"
+          necessary: true
+      csv_export_file: "data/convert/applications.csv"
+  # external vocabulary formats settings
+  # todo: handle like app.vocabularies as there could be more than one
   app.csv_vocab_formats_file: "data/import/formats_list.csv"
   app.csv_vocab_formats_file_has_header: false
   app.csv_vocab_formats_file_process_from_row: 8
@@ -97,5 +158,8 @@ parameters:
       type: "string"
     "Mime-type":
       column: 1
+      type: "string"
+    "Evidence":
+      column: 5
       type: "string"
   app.csv_vocab_formats_file_export_file: "data/convert/formats.csv"

@@ -58,7 +58,7 @@ class DataHandler
     return $this->importData;
   }
   
-  public function getVocabulary(string $vocabularyName): array
+  private function getVocabulary(string $vocabularyName): array
   {
     if (!isset($this->vocabularies[$vocabularyName])) {
       throw new \Exception("There is no vocabulary called $vocabularyName.");
@@ -72,6 +72,31 @@ class DataHandler
       ];
     }
     return $vocabulary;
+  }
+  
+  public function getVocabularies(array $vocabularyNames): array
+  {
+    $vocabularies = [];
+    foreach($vocabularyNames as $vocabularyName) {
+      $vocabulary = $this->getVocabulary($vocabularyName);
+      // looking, if a term does already exist
+      // due to the specific array set (the term name is in [0] using
+      // this foreaches
+      // @todo: create a dedicated compare-function
+      foreach($vocabulary as $vocabularyTerm) {
+        $termExists = false;
+        foreach($vocabularies as $existingTerm) {
+          if ($existingTerm[0] == $vocabularyTerm[0]) {
+            $termExists = true;
+            break;
+          }
+        }
+        if (!$termExists) {
+          $vocabularies[] = $vocabularyTerm;
+        }
+      }
+    }
+    return $vocabularies;
   }
   
   public function setExternalVocabulary(string $vocabularyName,
@@ -97,28 +122,36 @@ class DataHandler
     return true;
   }
 
-  private function setVocabularyTerms()
+  private function setVocabularyTerms(array $vocabularyMapping)
   {
     foreach($this->importData as $row=>$data) {
-      foreach($this->vocabularies as $vocName=>$vocData) {
-        $boundToVocabulary = [];
-        if (!is_array($data[$vocName])) {
-          $data[$vocName] = [$data[$vocName]];
-        }
-        foreach($data[$vocName] as $term) {
-          $term = trim($term);
-          if (empty($term)) {
-            continue;
+      //foreach($this->vocabularies as $vocName=>$vocData) {
+      foreach($vocabularyMapping as $vocName=>$dataFields) {
+        foreach($dataFields as $dataField) {
+          $boundToVocabulary = [];
+          //if (!is_array($data[$vocName])) {
+          if (!is_array($data[$dataField])) {
+            //$data[$vocName] = [$data[$vocName]];
+            $data[$dataField] = [$data[$dataField]];
           }
-          $key = array_search($term, $vocData);
-          if ($key === false) {
-            throw new \Exception("Didn't found term $term in row $row"
-                . " calling vocName $vocName");
-          } else {
-            $boundToVocabulary[] = $key;
+          //foreach($data[$vocName] as $term) {
+          foreach($data[$dataField] as $term) {
+            $term = trim($term);
+            if (empty($term)) {
+              continue;
+            }
+            //$key = array_search($term, $vocData);
+            $key = array_search($term, $this->vocabularies[$vocName]);
+            if ($key === false) {
+              throw new \Exception("Didn't found term $term in row $row"
+                  . " calling vocName $vocName");
+            } else {
+              $boundToVocabulary[] = $key;
+            }
           }
+          //$this->importData[$row][$vocName] = $boundToVocabulary;
+          $this->importData[$row][$dataField] = $boundToVocabulary;
         }
-        $this->importData[$row][$vocName] = $boundToVocabulary;
       }
     }
   }
@@ -170,11 +203,27 @@ class DataHandler
   public function handleVocabularies(array $structure)
   {
     $this->isImportDataValid();
+    // To make the connection between vocabulary and the data fields explicit
+    // a mapping is necessary, where all fields to a vocabulary are listed.
+    $vocabularyMapping = [];
 
     foreach($this->importData as $data) {
       foreach($structure as $colName=>$colData) {
         if ((!empty($colData['type']) && $colData['type'] == 'vocabulary') &&
             (!empty($data[$colName]))) {
+          // get the vocabulary name from the structure
+          // @todo: introduced this later, need to check if this connection
+          //   is resolved correctly everywhere
+          if (empty($colData['vocabulary'])) {
+            throw new \Exception("Vocabulary $colName has no vocabulary set");
+          }
+          $vocabularyName = $colData['vocabulary'];
+          if (!isset($vocabularyMapping[$vocabularyName])) {
+            $vocabularyMapping[$vocabularyName] = [$colName];
+          } elseif (!in_array($colName, $vocabularyMapping[$vocabularyName])) {
+            $vocabularyMapping[$vocabularyName][] = $colName;
+          }
+          // get the data from the field and put it into the vocabulary as term
           $values = $data[$colName];
           if (!is_array($data[$colName])) {
             // if it is not an array, make an array out of it
@@ -187,6 +236,9 @@ class DataHandler
               continue;
             }
             $externalId = false;
+            // external vocabularies are not calculated by the values of a
+            // field, instead they do have a explicit csv-file with the possible
+            // values.
             if (!empty($colData['externalVocabulary'])) {
               // respect external vocabulary
               // @todo: put in a dedicated method
@@ -213,12 +265,13 @@ class DataHandler
                 }
               }
             }
-            $this->addTermToVocabulary($colName, $value, $externalId);
+            $this->addTermToVocabulary($vocabularyName, $value, $externalId);
           }
         }
       }
     }
-    $this->setVocabularyTerms();
+    print_r($vocabularyMapping);
+    $this->setVocabularyTerms($vocabularyMapping);
   }
   
   public function showPartsOfData($part)

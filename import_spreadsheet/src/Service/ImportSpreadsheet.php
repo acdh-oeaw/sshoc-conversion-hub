@@ -88,42 +88,27 @@ class ImportSpreadsheet
     $this->dataHandler->handleVocabularies(
         $this->params->get('app.csv_import_file_structure'));
     
-    $this->logger->info('Prepare and write vocabulary invocations.');
-    $invocations = $this->transformHandler->transformData(
-        $this->dataHandler->getVocabulary('Invocations'),
-        $this->params->get('app.csv_vocab_invocations_process_from_row'),
-        $this->params->get('app.csv_vocab_invocations_structure'),
-        $this->params->get('app.csv_vocab_invocations_multival_separator')
-    );
-    $this->csvHandler->writeCSVData(
-        array_keys($this->params->get('app.csv_vocab_invocations_structure')),
-        $invocations,
-        $this->params->get('app.csv_vocab_invocations_export_file'));
-
-    $this->logger->info('Prepare and write vocabulary communities.');
-    $communities = $this->transformHandler->transformData(
-        $this->dataHandler->getVocabulary('Communities'),
-        $this->params->get('app.csv_vocab_communities_process_from_row'),
-        $this->params->get('app.csv_vocab_communities_structure'),
-        $this->params->get('app.csv_vocab_communities_multival_separator')
-    );
-    $this->csvHandler->writeCSVData(
-        array_keys($this->params->get('app.csv_vocab_communities_structure')),
-        $communities,
-        $this->params->get('app.csv_vocab_communities_export_file'));
-
-    // @todo: vocabularies handling could be done via the configuration!
-    $this->logger->info('Prepare and write vocabulary statuses.');
-    $statuses = $this->transformHandler->transformData(
-        $this->dataHandler->getVocabulary('Statuses'),
-        $this->params->get('app.csv_vocab_statuses_process_from_row'),
-        $this->params->get('app.csv_vocab_statuses_structure'),
-        $this->params->get('app.csv_vocab_statuses_multival_separator')
-    );
-    $this->csvHandler->writeCSVData(
-        array_keys($this->params->get('app.csv_vocab_statuses_structure')),
-        $statuses,
-        $this->params->get('app.csv_vocab_statuses_export_file'));
+    // @todo: how to handle external vocabularies in this foreach (using
+    //   dedicated configuration settings) - formats as an example
+    $this->logger->info('Write vocabulary files.');
+    $vocabularies = $this->params->get('app.vocabularies');
+    if (empty($vocabularies)) {
+      $this->logger->info('No vocabularies set.');
+    } else {
+      foreach($vocabularies as $vocabularyName=>$vocabularyData) {
+        $this->logger->info("Prepare and write vocabulary $vocabularyName.");
+        $vocabularyValues = $this->transformHandler->transformData(
+            $this->dataHandler->getVocabularies($vocabularyData['data_fields']),
+            0, // always 0 as it comes directly from the already prepared data structure
+            $vocabularyData['csv_file_structure'],
+            $vocabularyData['csv_file_multival_separator']
+        );
+        $this->csvHandler->writeCSVData(
+            array_keys($vocabularyData['csv_file_structure']),
+            $vocabularyValues,
+            $vocabularyData['csv_export_file']);
+        }
+    }
 
     //$this->dataHandler->showPartsOfData('8');
     

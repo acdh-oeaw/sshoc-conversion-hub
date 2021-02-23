@@ -180,13 +180,13 @@ class TransformHandler
               // If a type cast is set in the config, check if this is valid
               switch($colType) {
                 case 'url':
-                  if (!$this->isTypeUrlValid($data)) {
-                    //throw new \Exception("Url not valid "
-                    //    . "in data at row $row");
-                    $this->logger->critical("Url not valid "
-                        . "in data at row $row");
-                  } else {
-                    $setData = true;
+                  foreach($data as $url) {
+                    if (!$this->isTypeUrlValid($url)) {
+                      $this->logger->critical("Url $url not valid "
+                          . "in $colName at row $row");
+                    } else {
+                      $setData = true;
+                    }
                   }
                   break;
                 case 'string':

@@ -89,10 +89,10 @@ parameters:
       vocabulary: "Applications"
     "SeeAlso":
       column: 23
-      type: "string"
+      type: "url"
     "Source":
       column: 24
-      type: "string"
+      type: "url"
     "Contacts":
       column: 25
       type: "string"

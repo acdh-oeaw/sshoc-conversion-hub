@@ -9,18 +9,22 @@ dependencies:
     - field.field.node.solution.field_application_category
     - field.field.node.solution.field_application_sub_category
     - field.field.node.solution.field_community
+    - field.field.node.solution.field_contact
     - field.field.node.solution.field_further_development
     - field.field.node.solution.field_input_format
     - field.field.node.solution.field_input_format_comment
     - field.field.node.solution.field_invocation_type
     - field.field.node.solution.field_last_modification_date
+    - field.field.node.solution.field_last_modification_text
     - field.field.node.solution.field_level_of_knowledge
     - field.field.node.solution.field_license
+    - field.field.node.solution.field_license_text
     - field.field.node.solution.field_local_use
     - field.field.node.solution.field_operate_service
     - field.field.node.solution.field_output_format
     - field.field.node.solution.field_output_format_comment
     - field.field.node.solution.field_publication_date
+    - field.field.node.solution.field_publication_text
     - field.field.node.solution.field_see_also
     - field.field.node.solution.field_source
     - field.field.node.solution.field_status
@@ -52,18 +56,22 @@ hidden:
   field_application_category: true
   field_application_sub_category: true
   field_community: true
+  field_contact: true
   field_further_development: true
   field_input_format: true
   field_input_format_comment: true
   field_invocation_type: true
   field_last_modification_date: true
+  field_last_modification_text: true
   field_level_of_knowledge: true
   field_license: true
+  field_license_text: true
   field_local_use: true
   field_operate_service: true
   field_output_format: true
   field_output_format_comment: true
   field_publication_date: true
+  field_publication_text: true
   field_see_also: true
   field_source: true
   field_status: true

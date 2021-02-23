@@ -1,16 +1,17 @@
-uuid: c2c522b5-1755-4e75-896f-0e56d1c6ee4c
+uuid: 7fd3c960-b626-44e1-a64e-d4dca14298d4
 langcode: en
 status: true
 dependencies:
   module:
     - node
-    - taxonomy
-id: node.field_application_sub_category
-field_name: field_application_sub_category
+id: node.field_license_text
+field_name: field_license_text
 entity_type: node
-type: entity_reference
+type: string
 settings:
-  target_type: taxonomy_term
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
 module: core
 locked: false
 cardinality: -1

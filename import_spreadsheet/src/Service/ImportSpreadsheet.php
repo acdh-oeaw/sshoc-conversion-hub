@@ -4,7 +4,6 @@ namespace App\Service;
 
 use App\Util\CsvHandler;
 use App\Util\DataHandler;
-use App\Util\VocabularyHandler;
 use App\Util\TransformHandler;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\DependencyInjection\ParameterBag\ContainerBagInterface;
@@ -15,7 +14,6 @@ class ImportSpreadsheet
   private $logger;
   private $csvHandler;
   private $dataHandler;
-  private $vocabularyHandler;
   private $transformHandler;
   
   public function __construct(
@@ -23,7 +21,6 @@ class ImportSpreadsheet
       LoggerInterface $logger,
       CsvHandler $csvHandler,
       DataHandler $dataHandler,
-      VocabularyHandler $vocabularyHandler,
       TransformHandler $transformHandler)
   {
     // load the configuration (use the services.yaml to define the
@@ -34,7 +31,6 @@ class ImportSpreadsheet
     $this->logger = $logger;
     $this->csvHandler = $csvHandler;
     $this->dataHandler = $dataHandler;
-    $this->vocabularyHandler = $vocabularyHandler;
     $this->transformHandler = $transformHandler;
   }
   

@@ -8,18 +8,22 @@ dependencies:
     - field.field.node.solution.field_application_category
     - field.field.node.solution.field_application_sub_category
     - field.field.node.solution.field_community
+    - field.field.node.solution.field_contact
     - field.field.node.solution.field_further_development
     - field.field.node.solution.field_input_format
     - field.field.node.solution.field_input_format_comment
     - field.field.node.solution.field_invocation_type
     - field.field.node.solution.field_last_modification_date
+    - field.field.node.solution.field_last_modification_text
     - field.field.node.solution.field_level_of_knowledge
     - field.field.node.solution.field_license
+    - field.field.node.solution.field_license_text
     - field.field.node.solution.field_local_use
     - field.field.node.solution.field_operate_service
     - field.field.node.solution.field_output_format
     - field.field.node.solution.field_output_format_comment
     - field.field.node.solution.field_publication_date
+    - field.field.node.solution.field_publication_text
     - field.field.node.solution.field_see_also
     - field.field.node.solution.field_source
     - field.field.node.solution.field_status
@@ -36,7 +40,9 @@ third_party_settings:
     group_formats:
       children:
         - field_input_format
+        - field_input_format_comment
         - field_output_format
+        - field_output_format_comment
       parent_name: ''
       weight: 4
       format_type: fieldset
@@ -49,6 +55,7 @@ third_party_settings:
     group_usage:
       children:
         - field_license
+        - field_license_text
         - field_local_use
         - field_operate_service
         - field_further_development
@@ -68,7 +75,9 @@ third_party_settings:
         - field_community
         - field_level_of_knowledge
         - field_publication_date
+        - field_publication_text
         - field_last_modification_date
+        - field_last_modification_text
       parent_name: ''
       weight: 3
       format_type: fieldset
@@ -95,6 +104,7 @@ third_party_settings:
       children:
         - field_see_also
         - field_source
+        - field_contact
       parent_name: ''
       weight: 6
       format_type: fieldset
@@ -148,8 +158,15 @@ content:
     third_party_settings: {  }
     type: entity_reference_label
     region: content
+  field_contact:
+    weight: 11
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
   field_further_development:
-    weight: 21
+    weight: 22
     label: above
     settings:
       link: false
@@ -165,7 +182,7 @@ content:
     type: entity_reference_label
     region: content
   field_input_format_comment:
-    weight: 22
+    weight: 20
     label: above
     settings: {  }
     third_party_settings: {  }
@@ -180,13 +197,21 @@ content:
     type: entity_reference_label
     region: content
   field_last_modification_date:
-    weight: 8
+    weight: 9
     label: above
     settings:
       timezone_override: ''
       format_type: html_date
     third_party_settings: {  }
     type: datetime_default
+    region: content
+  field_last_modification_text:
+    weight: 10
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
     region: content
   field_level_of_knowledge:
     weight: 6
@@ -204,8 +229,16 @@ content:
     third_party_settings: {  }
     type: entity_reference_label
     region: content
-  field_local_use:
+  field_license_text:
     weight: 19
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_local_use:
+    weight: 20
     label: above
     settings:
       link: false
@@ -213,7 +246,7 @@ content:
     type: entity_reference_label
     region: content
   field_operate_service:
-    weight: 20
+    weight: 21
     label: above
     settings:
       link: false
@@ -221,7 +254,7 @@ content:
     type: entity_reference_label
     region: content
   field_output_format:
-    weight: 20
+    weight: 21
     label: above
     settings:
       link: true
@@ -229,7 +262,7 @@ content:
     type: entity_reference_label
     region: content
   field_output_format_comment:
-    weight: 23
+    weight: 22
     label: above
     settings: {  }
     third_party_settings: {  }
@@ -243,6 +276,14 @@ content:
       format_type: html_date
     third_party_settings: {  }
     type: datetime_default
+    region: content
+  field_publication_text:
+    weight: 8
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
     region: content
   field_see_also:
     weight: 9

@@ -1,19 +1,20 @@
-uuid: 0b5dd200-48a4-4a85-9a7c-47c704550e87
+uuid: 27f6c9bd-6040-432d-b34c-aa4d23e2cf08
 langcode: en
 status: true
 dependencies:
   module:
     - node
-    - taxonomy
-id: node.field_application_category
-field_name: field_application_category
+id: node.field_publication_text
+field_name: field_publication_text
 entity_type: node
-type: entity_reference
+type: string
 settings:
-  target_type: taxonomy_term
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
 module: core
 locked: false
-cardinality: -1
+cardinality: 1
 translatable: true
 indexes: {  }
 persist_with_no_fields: false

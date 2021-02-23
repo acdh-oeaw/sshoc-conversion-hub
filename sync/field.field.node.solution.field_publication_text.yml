@@ -1,0 +1,19 @@
+uuid: d19b9f3a-f31e-45d1-a907-a2f055d56c9d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_publication_text
+    - node.type.solution
+id: node.solution.field_publication_text
+field_name: field_publication_text
+entity_type: node
+bundle: solution
+label: 'Publication date'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

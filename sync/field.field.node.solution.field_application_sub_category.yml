@@ -5,7 +5,7 @@ dependencies:
   config:
     - field.storage.node.field_application_sub_category
     - node.type.solution
-    - taxonomy.vocabulary.application_sub_categories
+    - taxonomy.vocabulary.applications
   content:
     - 'taxonomy_term:application_sub_categories:de1c2bf5-ab97-4976-b856-315d7b3ceff6'
 id: node.solution.field_application_sub_category
@@ -24,10 +24,10 @@ settings:
   handler: 'default:taxonomy_term'
   handler_settings:
     target_bundles:
-      application_sub_categories: application_sub_categories
+      applications: applications
     sort:
       field: name
       direction: asc
     auto_create: false
-    auto_create_bundle: ''
+    auto_create_bundle: applications
 field_type: entity_reference

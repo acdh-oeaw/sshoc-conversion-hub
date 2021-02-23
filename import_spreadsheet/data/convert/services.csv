@@ -23,8 +23,7 @@ https://imagemagick.org/script/license.php",69|70|71,"over 200 image formats",69
 26,Karma,,https://usc-isi-i2.github.io/karma/,,1,9,1,1,1,"Apache 2.0
 https://github.com/usc-isi-i2/Web-Karma/blob/master/LICENSE.txt",52|68,"CSV, SQL-DB",68,RDF,1,2016?,2020,4,1|5,2,,,"The University of Southern California (https://usc-isi-i2.github.io/karma/#people)"
 27,Kuha2,,https://kuha2.readthedocs.io/en/latest/,"Kuha2 is a metadata server that provides descriptive social science research metadata for harvesting via multiple protocols and a growing variety of metadata standards. The software is a collection of applications and consists of three server applications, a client application and a database.",3,9,1,1,1,"EUPL
-v1.2 https://joinup.ec.europa.eu/sites/default/files/custom-page/attachment/2020-03/EUPL-1.2%20EN.txt",20|20|23,"API available for format independent input",17|14|22,,1,2017-10-25,2020-05-06,6,1,2,,"https://kuha2.readthedocs.io/en/latest/
-https://www.fsd.tuni.fi/en/data-archive/publications/open-source-software-by-fsd/","Finnish Social Science Data Archive"
+v1.2 https://joinup.ec.europa.eu/sites/default/files/custom-page/attachment/2020-03/EUPL-1.2%20EN.txt",20|20|23,"API available for format independent input",17|14|22,,1,2017-10-25,2020-05-06,6,1,2,,https://kuha2.readthedocs.io/en/latest/|https://www.fsd.tuni.fi/en/data-archive/publications/open-source-software-by-fsd/,"Finnish Social Science Data Archive"
 28,"LibreCat & Catmandu",,https://librecat.org/index.html,,5,9,1,1,1,"GPL v2.0
 https://github.com/LibreCat/LibreCat/blob/master/LICENSE",16,"bilbiographic records (MARC) - see https://librecat.org/Catmandu/#importers",68|30,"JSON, XML",1,2013,2020,4,1|5,2,,,"LibreCat Group (https://librecat.org/about.html)"
 29,"MetadataTransform DDI-XSLT",,https://github.com/MetadataTransform/ddi-xslt,,3,7,1,1,1,"GNU LGPL https://www.gnu.org/licenses/lgpl-3.0.html",23|24,,16|20|18|34|33,,8,2013/2014,2017,7,1,2,,,"SND / Olof Olsson"
@@ -40,10 +39,10 @@ https://github.com/LibreCat/LibreCat/blob/master/LICENSE",16,"bilbiographic reco
 39,REFI,,https://www.qdasoftware.org/,,1,8,1,1,1,MIT,68,,68,,,,,3,1,2,,,
 40,Sledgehammer,,https://ddialliance.org/tool/sledgehammer,,3,6,6,,,,58|93|57|25,,11|52|57|93|58|90,"ASCII text format (fixed, csv, delimited) + generating scripts for reading ASCII data into R, SAS, SPSS, Stata, Mathematica Notebook, Berkeley SDA, and various flavors of SQL",9,"v1.0 2015-07-17 (latest version)",,2,1,2,,,"Metadata Technology North America, mtna@mtna.us"
 41,Smallpdf,,https://smallpdf.com/,,1,2,3,,,"not available",34|68|70|36|35,,34|68|70|36|35,,1,?,2020,2,1,2,,,"Smallpdf GmbH"
-42,"Spreadsheet software like MS Excel, LibreOffice Calc, GoogleSpreadsheet",,https://www.libreoffice.org/|https://www.microsoft.com/en-us/microsoft-365/excel,,1,3,1,,,"Mozilla Public License v2.0 / Microsoft copyright license",68,"manual created data|spreadsheet formats (CSV, ODS, XLS, XLSX, ...)",68,"spreadsheet formats (CSV, ODS, XLS, XLSX, ...), PDF",1,?,2020,2,1,2,,,"The Document Foundation|Microsoft"
-43,"SSK Scenario: Corpus Modelling",,http://ssk.huma-num.fr/#/scenarios/SSK_sc_corpusModellingInTEI,,2,8,1,1,1,"CC BY 4.0",11,,37,,7,2017,2019,4,1,2,,,"Klaus Illmayer|Susanne Haaf|Piotr Bański"
+42,"Spreadsheet software like MS Excel, LibreOffice Calc, GoogleSpreadsheet",,https://www.libreoffice.org/|https://www.microsoft.com/en-us/microsoft-365/excel,,1,3,1,,,"Mozilla Public License v2.0 / Microsoft copyright license",68,"manual created data|spreadsheet formats (CSV, ODS, XLS, XLSX, ...)",68,"spreadsheet formats (CSV, ODS, XLS, XLSX, ...), PDF",1,?,2020,2,1,2,,,"The Document Foundation / Microsoft"
+43,"SSK Scenario: Corpus Modelling",,http://ssk.huma-num.fr/#/scenarios/SSK_sc_corpusModellingInTEI,,2,8,1,1,1,"CC BY 4.0",11,,37,,7,2017,2019,4,1,2,,,"Klaus Illmayer / Susanne Haaf / Piotr Bański"
 44,Stat/Transfer,,https://stattransfer.com/,,3,3|11,3,,,https://stattransfer.com/ordering/prices/,11|19|57|93|58|98,"also various other formats",11|19|57|93|58|98,"also various other formats",1,1986,2020-01-21,2,1,2,,,"Circle Systems"
-45,Tabula,,https://tabula.technology/,,1,3,1,1,1,MIT,34,"tables in PDF",52|53|54,,1,2013,2019,2,1,2,,,"Manuel Aristarán|Mike Tigas|Jeremy B. Merrill"
+45,Tabula,,https://tabula.technology/,,1,3,1,1,1,MIT,34,"tables in PDF",52|53|54,,1,2013,2019,2,1,2,,,"Manuel Aristarán / Mike Tigas / Jeremy B. Merrill"
 46,TEI-OxGarage,,https://oxgarage2.tei-c.org,,2,5,1,1,1,"GPL v3
 https://github.com/TEIC/oxgarage/blob/dev/LICENSE",37|35|36|11|38|52|53|54|56|55,"also various other formats",37|35|36|39|40|38|9,"also various other formats",1,2000s?,2020,4,1,2,,,TEI
 47,"TEI↔TCF encoder+decoder",,http://kaskade.dwds.de/tei-tcf/,,2,2,1,5,5,"not available",37|79,,37|79,,10,?,?,2,1,2,,,DWDS

@@ -12,6 +12,9 @@ parameters:
       column: 3
       type: "string"
       necessary: true
+    "AlternativeTitle":
+      column: 4
+      type: "string"
     "Accesspoints":
       column: 5
       type: "url"
@@ -27,24 +30,39 @@ parameters:
       column: 8
       type: "vocabulary"
       vocabulary: "Invocations"
-    "inputFormat":
+    "UsageLocal":
+      column: 9
+      type: "vocabulary"
+      vocabulary: "Usages"
+    "UsageOperate":
+      column: 10
+      type: "vocabulary"
+      vocabulary: "Usages"
+    "UsageFurther":
+      column: 11
+      type: "vocabulary"
+      vocabulary: "Usages"
+    "License":
+      column: 12
+      type: "string"
+    "InputFormat":
       column: 13
       type: "vocabulary"
       vocabulary: "inputFormat"
       "externalVocabulary": "formats"
       # make sure that the key is in line with the setting in the vocbulary
       "externalVocabularyKey": "Mime-type"
-    "inputFormatComment":
+    "InputFormatComment":
       column: 14
       type: "string"
-    "outputFormat":
+    "OutputFormat":
       column: 15
       type: "vocabulary"
       vocabulary: "outputFormat"
       "externalVocabulary": "formats"
       # make sure that the key is in line with the setting in the vocbulary
       "externalVocabularyKey": "Mime-type"
-    "outputFormatComment":
+    "OutputFormatComment":
       column: 16
       type: "string"
     "Statuses":
@@ -69,6 +87,9 @@ parameters:
       column: 22
       type: "vocabulary"
       vocabulary: "Applications"
+    "SeeAlso":
+      column: 23
+      type: "string"
     "Source":
       column: 24
       type: "string"
@@ -78,12 +99,9 @@ parameters:
   app.csv_export_file: "data/convert/services.csv"
   # vocabulary settings - internal vocabularies calculated from one data field
   app.vocabularies:
-    # the name of the vocablary should be the same as the name of the field
-    # from where the data is generated
-    # todo: make this to an explicit connection (currently implicit)
+    # the name of the vocablary should be the same as it is in the vocabulary
+    # setting of a data field (type: vocabulary)
     "Invocations":
-      # Explicit connection to the data fields
-      data_fields: ["Invocations"]
       csv_file_multival_separator: ' ; '
       csv_file_structure:
         "Id":
@@ -95,7 +113,6 @@ parameters:
           necessary: true
       csv_export_file: "data/convert/invocations.csv"
     "Communities":
-      data_fields: ["Communities"]
       csv_file_multival_separator: ' ; '
       csv_file_structure:
         "Id":
@@ -107,7 +124,6 @@ parameters:
           necessary: true
       csv_export_file: "data/convert/communities.csv"
     "Statuses":
-      data_fields: ["Statuses"]
       csv_file_multival_separator: ' ; '
       csv_file_structure:
         "Id":
@@ -119,7 +135,6 @@ parameters:
           necessary: true
       csv_export_file: "data/convert/statuses.csv"
     "KnowledgeLevels":
-      data_fields: ["KnowledgeLevel"]
       csv_file_multival_separator: ' ; '
       csv_file_structure:
         "Id":
@@ -131,7 +146,6 @@ parameters:
           necessary: true
       csv_export_file: "data/convert/knowledgelevels.csv"
     "Applications":
-      data_fields: ["ApplicationCategory", "ApplicationSubcategory"]
       csv_file_multival_separator: ' ; '
       csv_file_structure:
         "Id":
@@ -142,6 +156,17 @@ parameters:
           type: "string"
           necessary: true
       csv_export_file: "data/convert/applications.csv"
+    "Usages":
+      csv_file_multival_separator: ' ; '
+      csv_file_structure:
+        "Id":
+          type: "identifier"
+          ignoreImport: true
+        "Name":
+          column: 0
+          type: "string"
+          necessary: true
+      csv_export_file: "data/convert/usages.csv"
   # external vocabulary formats settings
   # todo: handle like app.vocabularies as there could be more than one
   app.csv_vocab_formats_file: "data/import/formats_list.csv"

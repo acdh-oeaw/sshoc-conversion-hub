@@ -1,0 +1,21 @@
+uuid: a6d58cbe-654e-452d-97e1-fafb2f08310f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_output_format_comment
+    - node.type.solution
+  module:
+    - text
+id: node.solution.field_output_format_comment
+field_name: field_output_format_comment
+entity_type: node
+bundle: solution
+label: 'Output format comment'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

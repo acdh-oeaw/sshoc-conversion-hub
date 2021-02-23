@@ -1,72 +1,72 @@
 Id,Name,Mime-type,Evidence
-8,RDF/XML,application/rdf+xml,
-9,"RDF turtle",text/turtle,
-10,ntriples,text/plain,
-13,"Dublin Core",application/dc+xml,
-14,MARC,,
-15,"MARC21 (XML)",application/marcxml+xml,
-16,EAD3,application/vnd.ead3+xml,
-17,"DataCite 2.2.",application/vnd.datacite.datacite+xml;version=2.2,
-18,DDI,application/vnd.ddi+xml,https://git.gesis.org/stardat/stardat-ddi-lifecycle/commit/f2a94da8f4f66d47299b86487fd4aa60d57fcea6
-19,"DDI Codebook 1.2.2",application/vnd.ddi+xml;version=1.2.2,
-20,"DDI Codebook 2.0",application/vnd.ddi+xml;version=2.0,
-21,"DDI Codebook 2.5",application/vnd.ddi+xml;version=2.5,
-22,"DDI Lifecycle 3.1",application/vnd.ddi+xml;version=3.1,
-23,"DDI Lifecycle 3.2",application/vnd.ddi+xml;version=3.2,
-24,DDI+ASCII,application/vnd.ddi-ascii,
-25,CMDI,application/x-cmdi+xml,
-26,"PaQu metadata",application/prs.paqu-metadata,new
-29,XML,text/xml,
-30,TXT,text/plain,
-31,XHTML,application/xhtml+xml,
-32,HTML,text/html,
-33,PDF,application/pdf,
-34,DOC,application/vnd.ms-word,http://help.dottoro.com/lapuadlp.php
-35,DOCX,application/vnd.openxmlformats-officedocument.wordprocessingml.documen,
-36,TEI,application/tei+xml,"TEI - tei-xml application/tei+xml RFC6129] (Romary, Lundberg)"
-37,RTF,application/rtf,
-38,LaTeX,application/x-latex,
-39,ePub,application/epub+zip,
-43,PPT,,
-44,PPTX,,
-45,ODP,,
-46,ODS,,
-47,ODT,,
-48,SXC,,
-49,SXI,,
-51,CSV,text/csv,iana
-52,XLS,application/vnd.ms-excel,iana
-53,XLSX,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,dottore
-54,TSV,text/tab-separated-values,iana
-55,ODS,application/vnd.oasis.opendocument.spreadsheet,iana
-56,SAS,application/x-sas-data,https://tika.apache.org/1.21/formats.html
-57,STATA,application/x-stata,https://catalog.data.gov/dataset?bureauCode=184%3A03&res_format=application%2Fx-stata
-58,fixed-format-ascii,text/prs.plain.fixed-format,"http://www.nationalarchives.gov.uk/PRONOM/x-fmt/110,"
-62,"audio files",audio/*,
-64,"video files",video/*,
-67,"images of scans",?,
-68,GIF,image/gif,
-69,JPG,image/jpeg,
-70,TIFF,image/tiff,
-73,TEI,application/tei+xml,"TEI - tei-xml application/tei+xml RFC6129] (Romary, Lundberg)"
-74,CHAT,text/x-chat,https://archive.mpi.nl/tla/accepted-file-formats
-75,EAF,text/x-eaf+xml,https://archive.mpi.nl/tla/accepted-file-formats
-76,Folia,application/folia+xml,https://www.ru.nl/clst/clarin-centre/preferred-recommended-data-formats//
-77,TEI,application/tei+xml,
-78,TCF,application/tcf+xml,https://weblicht.sfs.uni-tuebingen.de/weblichtwiki/index.php/The_TCF_Format
-79,TextGrid,text/praat-textgrid,https://archive.mpi.nl/tla/accepted-file-formats
-82,hOCR,text/vnd.hocr+html,
-83,ALTO,application/alto+xml,
-87,R,,
-88,SQL,,
-89,Mathematica,application/mathematica,https://www.iana.org/assignments/media-types/media-types.xhtml#Wolfram
-92,"SPSS (.sav)",application/x-spss-sav,https://www.loc.gov/preservation/digital/formats/fdd/fdd000469.shtml
-93,"SPSS (.spv)",application/x-spss-spv,https://talar.sfb833.uni-tuebingen.de/datamanagement/
-94,Stat/Transfer,NA,
-95,"Stata (.dta)",application/x-stata,https://catalog.data.gov/dataset?bureauCode=184%3A03&res_format=application%2Fx-stata
-96,SAS,application/x-sas-data,https://tika.apache.org/1.21/formats.html
-97,Statistica,appication/vnd.sta,
-100,Mathematica,application/mathematica,
-101,R,application/x-R,
-104,"OSM Geocoordinates",,
-107,Triple-S,,
+9,RDF/XML,application/rdf+xml,
+10,"RDF turtle",text/turtle,
+11,ntriples,text/plain,
+14,"Dublin Core",application/dc+xml,
+15,MARC,,
+16,"MARC21 (XML)",application/marcxml+xml,
+17,EAD3,application/vnd.ead3+xml,
+18,"DataCite 2.2.",application/vnd.datacite.datacite+xml;version=2.2,
+19,DDI,application/vnd.ddi+xml,https://git.gesis.org/stardat/stardat-ddi-lifecycle/commit/f2a94da8f4f66d47299b86487fd4aa60d57fcea6
+20,"DDI Codebook 1.2.2",application/vnd.ddi+xml;version=1.2.2,
+21,"DDI Codebook 2.0",application/vnd.ddi+xml;version=2.0,
+22,"DDI Codebook 2.5",application/vnd.ddi+xml;version=2.5,
+23,"DDI Lifecycle 3.1",application/vnd.ddi+xml;version=3.1,
+24,"DDI Lifecycle 3.2",application/vnd.ddi+xml;version=3.2,
+25,DDI+ASCII,application/vnd.ddi-ascii,
+26,CMDI,application/x-cmdi+xml,
+27,"PaQu metadata",application/prs.paqu-metadata,new
+30,XML,text/xml,
+31,TXT,text/plain,
+32,XHTML,application/xhtml+xml,
+33,HTML,text/html,
+34,PDF,application/pdf,
+35,DOC,application/vnd.ms-word,http://help.dottoro.com/lapuadlp.php
+36,DOCX,application/vnd.openxmlformats-officedocument.wordprocessingml.documen,
+37,TEI,application/tei+xml,"TEI - tei-xml application/tei+xml RFC6129] (Romary, Lundberg)"
+38,RTF,application/rtf,
+39,LaTeX,application/x-latex,
+40,ePub,application/epub+zip,
+44,PPT,,
+45,PPTX,,
+46,ODP,,
+47,ODS,,
+48,ODT,,
+49,SXC,,
+50,SXI,,
+52,CSV,text/csv,iana
+53,XLS,application/vnd.ms-excel,iana
+54,XLSX,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,dottore
+55,TSV,text/tab-separated-values,iana
+56,ODS,application/vnd.oasis.opendocument.spreadsheet,iana
+57,SAS,application/x-sas-data,https://tika.apache.org/1.21/formats.html
+58,STATA,application/x-stata,https://catalog.data.gov/dataset?bureauCode=184%3A03&res_format=application%2Fx-stata
+59,fixed-format-ascii,text/prs.plain.fixed-format,"http://www.nationalarchives.gov.uk/PRONOM/x-fmt/110,"
+63,"audio files",audio/*,
+65,"video files",video/*,
+68,"images of scans",?,
+69,GIF,image/gif,
+70,JPG,image/jpeg,
+71,TIFF,image/tiff,
+74,TEI,application/tei+xml,"TEI - tei-xml application/tei+xml RFC6129] (Romary, Lundberg)"
+75,CHAT,text/x-chat,https://archive.mpi.nl/tla/accepted-file-formats
+76,EAF,text/x-eaf+xml,https://archive.mpi.nl/tla/accepted-file-formats
+77,Folia,application/folia+xml,https://www.ru.nl/clst/clarin-centre/preferred-recommended-data-formats//
+78,TEI,application/tei+xml,
+79,TCF,application/tcf+xml,https://weblicht.sfs.uni-tuebingen.de/weblichtwiki/index.php/The_TCF_Format
+80,TextGrid,text/praat-textgrid,https://archive.mpi.nl/tla/accepted-file-formats
+83,hOCR,text/vnd.hocr+html,
+84,ALTO,application/alto+xml,
+88,R,,
+89,SQL,,
+90,Mathematica,application/mathematica,https://www.iana.org/assignments/media-types/media-types.xhtml#Wolfram
+93,"SPSS (.sav)",application/x-spss-sav,https://www.loc.gov/preservation/digital/formats/fdd/fdd000469.shtml
+94,"SPSS (.spv)",application/x-spss-spv,https://talar.sfb833.uni-tuebingen.de/datamanagement/
+95,Stat/Transfer,NA,
+96,"Stata (.dta)",application/x-stata,https://catalog.data.gov/dataset?bureauCode=184%3A03&res_format=application%2Fx-stata
+97,SAS,application/x-sas-data,https://tika.apache.org/1.21/formats.html
+98,Statistica,appication/vnd.sta,
+101,Mathematica,application/mathematica,
+102,R,application/x-R,
+105,"OSM Geocoordinates",,
+108,Triple-S,,

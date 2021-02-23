@@ -1,9 +1,9 @@
 Id,Name
-0,"source and target schema knowledge -> XML schema expert"
-1,novice
-2,expert
-3,advanced
-4,"Lot of DDI knowledge needed -> DDI expert"
-5,"Technical knowledge about OAI-PMH, basic system admistration skills -> OAI-PMH expert"
-6,"advanced/expert (if developed to web service and with more documentation -> novice)"
-7,"Knowledge of R required"
+1,"source and target schema knowledge -> XML schema expert"
+2,novice
+3,expert
+4,advanced
+5,"Lot of DDI knowledge needed -> DDI expert"
+6,"Technical knowledge about OAI-PMH, basic system admistration skills -> OAI-PMH expert"
+7,"advanced/expert (if developed to web service and with more documentation -> novice)"
+8,"Knowledge of R required"

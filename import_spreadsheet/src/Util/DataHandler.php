@@ -58,7 +58,7 @@ class DataHandler
     return $this->importData;
   }
   
-  private function getVocabulary(string $vocabularyName): array
+  public function getVocabulary(string $vocabularyName): array
   {
     if (!isset($this->vocabularies[$vocabularyName])) {
       throw new \Exception("There is no vocabulary called $vocabularyName.");
@@ -66,37 +66,12 @@ class DataHandler
     // vocabularies created by the values in the data do only
     // have a value field, this value is put into the zero column
     $vocabulary = [];
-    foreach($this->vocabularies[$vocabularyName] as $key => $value) {
+    foreach($this->vocabularies[$vocabularyName] as $key=>$value) {
       $vocabulary[$key] = [
         0 => $value
       ];
     }
     return $vocabulary;
-  }
-  
-  public function getVocabularies(array $vocabularyNames): array
-  {
-    $vocabularies = [];
-    foreach($vocabularyNames as $vocabularyName) {
-      $vocabulary = $this->getVocabulary($vocabularyName);
-      // looking, if a term does already exist
-      // due to the specific array set (the term name is in [0] using
-      // this foreaches
-      // @todo: create a dedicated compare-function
-      foreach($vocabulary as $vocabularyTerm) {
-        $termExists = false;
-        foreach($vocabularies as $existingTerm) {
-          if ($existingTerm[0] == $vocabularyTerm[0]) {
-            $termExists = true;
-            break;
-          }
-        }
-        if (!$termExists) {
-          $vocabularies[] = $vocabularyTerm;
-        }
-      }
-    }
-    return $vocabularies;
   }
   
   public function setExternalVocabulary(string $vocabularyName,
@@ -125,22 +100,17 @@ class DataHandler
   private function setVocabularyTerms(array $vocabularyMapping)
   {
     foreach($this->importData as $row=>$data) {
-      //foreach($this->vocabularies as $vocName=>$vocData) {
       foreach($vocabularyMapping as $vocName=>$dataFields) {
         foreach($dataFields as $dataField) {
           $boundToVocabulary = [];
-          //if (!is_array($data[$vocName])) {
           if (!is_array($data[$dataField])) {
-            //$data[$vocName] = [$data[$vocName]];
             $data[$dataField] = [$data[$dataField]];
           }
-          //foreach($data[$vocName] as $term) {
           foreach($data[$dataField] as $term) {
             $term = trim($term);
             if (empty($term)) {
               continue;
             }
-            //$key = array_search($term, $vocData);
             $key = array_search($term, $this->vocabularies[$vocName]);
             if ($key === false) {
               throw new \Exception("Didn't found term $term in row $row"
@@ -149,7 +119,6 @@ class DataHandler
               $boundToVocabulary[] = $key;
             }
           }
-          //$this->importData[$row][$vocName] = $boundToVocabulary;
           $this->importData[$row][$dataField] = $boundToVocabulary;
         }
       }
@@ -159,22 +128,35 @@ class DataHandler
   private function addTermToVocabulary(string $vocabularyName, string $term,
       $externalId = false)
   {
+    // Due to the migrate process of Drupal using skip_on_empty it is not
+    // possible to have a key in the array with 0 (zero) as it is done
+    // usually. therefore don't use [] to add a new term but instead start
+    // with 1 (one). a problem are external vocabularies. as it is unclear
+    // if there is a 0-key, always add + 1 to the externalId-key
     if (!isset($this->vocabularies[$vocabularyName])) {
       $this->vocabularies[$vocabularyName] = [];
     }
     if (!in_array($term, $this->vocabularies[$vocabularyName])) {
+      $termId = 1;
       if ($externalId !== false) {
-        $this->vocabularies[$vocabularyName][$externalId] = $term;
+        $termId = $externalId;
       } else {
-        $this->vocabularies[$vocabularyName][] = $term;
+        $countTerms = count($this->vocabularies[$vocabularyName]);
+        // take the current max count and add one number so to be sure that
+        // there is never a 0 key (if no terms are set it takes the default
+        // value 1)
+        if ($countTerms > 0) {
+          $termId = $countTerms + 1;
+        }
       }
+      $this->vocabularies[$vocabularyName][$termId] = $term;
     }
   }
   
   private function searchTermInExternalVocabulary(
       string $externalVocabulary,
       string $externalVocabularyTermKey,
-      string $searchTerm): int
+      string $searchTerm)
   {
     if (!isset($this->externalVocabularies[$externalVocabulary])) {
       throw new \Exception("External vocabulary " . $externalVocabulary
@@ -270,7 +252,6 @@ class DataHandler
         }
       }
     }
-    print_r($vocabularyMapping);
     $this->setVocabularyTerms($vocabularyMapping);
   }
   

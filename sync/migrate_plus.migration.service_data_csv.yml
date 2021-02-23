@@ -9,7 +9,7 @@ cck_plugin_method: null
 migration_tags:
   - 'Service data'
 migration_group: service_data
-label: 'Migrate services from CSV'
+label: 'Migrate conversion solutions (services) from CSV'
 source:
   plugin: csv
   path: 'public://services.csv'
@@ -26,11 +26,14 @@ source:
       name: title
       label: Title
     -
-      name: body
-      label: Description
+      name: alternativetitle
+      label: 'Alternative Title'
     -
       name: accesspoints
       label: Accesspoints
+    -
+      name: body
+      label: Description
     -
       name: communities
       label: Communities
@@ -38,17 +41,59 @@ source:
       name: invocations
       label: Invocations
     -
+      name: usagelocal
+      label: 'Usage: local'
+    -
+      name: usageoperate
+      label: 'Usage: operate'
+    -
+      name: usagefurther
+      label: 'Usage: further'
+    -
+      name: license
+      label: License
+    -
       name: inputformats
       label: Inputformats
     -
+      name: inputformatscomment
+      label: 'Inputformats comment'
+    -
       name: outputformats
       label: Outputformats
+    -
+      name: outputformatscomment
+      label: 'Outputformats comment'
+    -
+      name: statuses
+      label: Statuses
+    -
+      name: publicationdate
+      label: 'Publication Date'
+    -
+      name: lastmodificationdate
+      label: 'Last Modification Date'
+    -
+      name: knowledgelevel
+      label: 'Knowledge Level'
+    -
+      name: applicationcategory
+      label: 'Application Category'
+    -
+      name: applicationsubcategory
+      label: 'Application Subcategory'
+    -
+      name: seealso
+      label: 'See Also'
+    -
+      name: source
+      label: Source
+    -
+      name: contacts
+      label: Contacts
 process:
   title: title
-  body/value: body
-  body/format:
-    plugin: default_value
-    default_value: basic_html
+  alternativetitle: field_alternative_name
   field_url:
     -
       plugin: skip_on_empty
@@ -57,6 +102,10 @@ process:
     -
       plugin: explode
       delimiter: '|'
+  body/value: body
+  body/format:
+    plugin: default_value
+    default_value: basic_html
   field_community:
     -
       plugin: skip_on_empty
@@ -79,6 +128,39 @@ process:
     -
       plugin: migration_lookup
       migration: service_invocations_csv
+  field_local_use:
+    -
+      plugin: skip_on_empty
+      source: usagelocal
+      method: process
+    -
+      plugin: explode
+      delimiter: '|'
+    -
+      plugin: migration_lookup
+      migration: service_usages_csv
+  field_operate_service:
+    -
+      plugin: skip_on_empty
+      source: usageoperate
+      method: process
+    -
+      plugin: explode
+      delimiter: '|'
+    -
+      plugin: migration_lookup
+      migration: service_usages_csv
+  field_further_development:
+    -
+      plugin: skip_on_empty
+      source: usagefurther
+      method: process
+    -
+      plugin: explode
+      delimiter: '|'
+    -
+      plugin: migration_lookup
+      migration: service_usages_csv
   field_input_format:
     -
       plugin: skip_on_empty
@@ -89,7 +171,11 @@ process:
       delimiter: '|'
     -
       plugin: migration_lookup
-      migration: service_inputformats_csv
+      migration: service_formats_csv
+  field_input_format_comment/value: inputformatscomment
+  field_input_format_comment/format:
+    plugin: default_value
+    default_value: basic_html
   field_output_format:
     -
       plugin: skip_on_empty
@@ -100,7 +186,11 @@ process:
       delimiter: '|'
     -
       plugin: migration_lookup
-      migration: service_outputformats_csv
+      migration: service_formats_csv
+  field_output_format_comment/value: outputformatscomment
+  field_output_format_comment/format:
+    plugin: default_value
+    default_value: basic_html
   type:
     plugin: default_value
     default_value: solution
@@ -110,5 +200,5 @@ migration_dependencies:
   required:
     - service_communities_csv
     - service_invocations_csv
-    - service_inputformats_csv
-    - service_outputformats_csv
+    - service_usages_csv
+    - service_formats_csv

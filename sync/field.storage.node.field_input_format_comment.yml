@@ -1,0 +1,19 @@
+uuid: fe45559f-a044-4248-85a5-8feb265fc339
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - text
+id: node.field_input_format_comment
+field_name: field_input_format_comment
+entity_type: node
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

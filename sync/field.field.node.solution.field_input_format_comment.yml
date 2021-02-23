@@ -1,0 +1,21 @@
+uuid: c31fc971-2b04-4980-92e8-13b825d1a88f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_input_format_comment
+    - node.type.solution
+  module:
+    - text
+id: node.solution.field_input_format_comment
+field_name: field_input_format_comment
+entity_type: node
+bundle: solution
+label: 'Input format comment'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

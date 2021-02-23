@@ -25,15 +25,8 @@ source:
     -
       name: name
       label: Name
-    -
-      name: body
-      label: Description
 process:
   name: name
-  description/value: body
-  description/format:
-    plugin: default_value
-    default_value: basic_html
 destination:
   plugin: 'entity:taxonomy_term'
   default_bundle: communities

@@ -113,7 +113,8 @@ class TransformHandler
 
     foreach($csvRecords as $row=>$record) {
       // Ignore rows due to general information not relevant to process.
-      if ($row >= $processFromRow) {
+      // As we set + 1 for offsets, don't use the => here.
+      if ($row > $processFromRow) {
         // Go through the structure and gather the data.
         // there are some settings to be aware
         // there can be necessary fields (using "necessary": true), if such a

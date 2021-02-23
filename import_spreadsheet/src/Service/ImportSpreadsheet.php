@@ -40,10 +40,11 @@ class ImportSpreadsheet
   
   public function runIngest(): string
   {
-    // to see this log, call it on console with -vv
-    /*$this->logger->info('test: using parameter: '
-        . $this->params->get('app.csv_import_file'));*/
-    
+    // @todo: It could be useful to test the configuration file
+    // on validity, e.g.:
+    //   * are the vocbularies correct set (does the vocabulary claimed
+    //     for a data field exists in the vocabulary section)
+
     $this->logger->info('Load the main csv file.');
     $csvRecords = $this->csvHandler->loadCsvData(
         $this->params->get('app.csv_import_file'),
@@ -98,7 +99,7 @@ class ImportSpreadsheet
       foreach($vocabularies as $vocabularyName=>$vocabularyData) {
         $this->logger->info("Prepare and write vocabulary $vocabularyName.");
         $vocabularyValues = $this->transformHandler->transformData(
-            $this->dataHandler->getVocabularies($vocabularyData['data_fields']),
+            $this->dataHandler->getVocabulary($vocabularyName),
             0, // always 0 as it comes directly from the already prepared data structure
             $vocabularyData['csv_file_structure'],
             $vocabularyData['csv_file_multival_separator']

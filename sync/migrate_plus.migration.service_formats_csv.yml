@@ -1,18 +1,18 @@
-uuid: e7dbfc97-dbe5-48c8-908a-6eb6f208deb8
+uuid: 469386db-b604-4c2d-9ee7-32e07209960c
 langcode: en
 status: true
 dependencies: {  }
-id: service_inputformats_csv
+id: service_formats_csv
 class: null
 field_plugin_method: null
 cck_plugin_method: null
 migration_tags:
-  - 'Inputformats data'
+  - 'Formats data'
 migration_group: service_data
-label: 'Migrate inputformats tags from services CSV'
+label: 'Migrate formats (input and output) tags from services CSV'
 source:
   plugin: csv
-  path: 'public://inputformats.csv'
+  path: 'public://formats.csv'
   delimiter: ','
   enclosure: '"'
   header_row_count: 1
@@ -26,10 +26,14 @@ source:
       name: name
       label: Name
     -
+      name: mediatype
+      label: 'Media Type (MIME)'
+    -
       name: body
-      label: Description
+      label: Evidence
 process:
   name: name
+  field_media_type: mediatype
   description/value: body
   description/format:
     plugin: default_value

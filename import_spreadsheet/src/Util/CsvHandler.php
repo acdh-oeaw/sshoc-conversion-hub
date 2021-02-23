@@ -71,6 +71,13 @@ class CsvHandler
       // necessary, therefore convert to array.
       // @todo: csvData may not be necessary.
       foreach($csvData as $offset => $record) {
+        // We don't want to have keys/offets with value 0 due to Drupal's
+        // migrate mechanism that ignores 0 values in the skip_on_empty-part.
+        // Therefore always set the offset + 1 (hoping that there are no
+        // negative numbers)
+        if (is_int($offset)) {
+          $offset += 1;
+        }
         $csvRecords[$offset] = $record;
       }
     }

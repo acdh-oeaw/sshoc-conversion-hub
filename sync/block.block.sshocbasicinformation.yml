@@ -1,0 +1,30 @@
+uuid: 47cc939b-59df-421c-aff6-77a70af22914
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:457266f7-1f32-474b-a65a-dc48cd38096f'
+  module:
+    - block_content
+    - system
+  theme:
+    - bootstrap_conversionhub
+id: sshocbasicinformation
+theme: bootstrap_conversionhub
+region: header
+weight: -9
+provider: null
+plugin: 'block_content:457266f7-1f32-474b-a65a-dc48cd38096f'
+settings:
+  id: 'block_content:457266f7-1f32-474b-a65a-dc48cd38096f'
+  label: 'SSHOC basic information'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: '/admin/*'
+    negate: true

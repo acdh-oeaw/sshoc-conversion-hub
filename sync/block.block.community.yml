@@ -1,4 +1,4 @@
-uuid: af3857c9-41d8-4d80-8109-e45409c349b4
+uuid: 863024d0-2f1a-454f-a359-b5280b5495e4
 langcode: en
 status: true
 dependencies:
@@ -8,11 +8,11 @@ dependencies:
     - facets
     - system
   theme:
-    - bootstrap
+    - bootstrap_conversionhub
 id: community
-theme: bootstrap
+theme: bootstrap_conversionhub
 region: sidebar_first
-weight: -8
+weight: -9
 provider: null
 plugin: 'facet_block:community_taxonomy_term_name'
 settings:

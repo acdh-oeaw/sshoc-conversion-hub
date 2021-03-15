@@ -1,4 +1,4 @@
-uuid: 38d9a026-358f-4c88-86b1-bc100c69b59d
+uuid: 09cc1b45-4e22-4dcd-9928-4b55650c79db
 langcode: en
 status: true
 dependencies:
@@ -8,11 +8,11 @@ dependencies:
     - facets
     - system
   theme:
-    - bootstrap
+    - bootstrap_conversionhub
 id: expectedlevelofknowledge
-theme: bootstrap
+theme: bootstrap_conversionhub
 region: sidebar_first
-weight: -9
+weight: -10
 provider: null
 plugin: 'facet_block:expected_level_of_knowledge_taxonomy_term_name'
 settings:

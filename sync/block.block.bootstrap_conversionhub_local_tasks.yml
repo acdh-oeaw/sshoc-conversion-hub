@@ -1,0 +1,22 @@
+uuid: baa93427-a6ab-4afb-8e8b-b0ad649f2a9c
+langcode: en
+status: true
+dependencies:
+  theme:
+    - bootstrap_conversionhub
+_core:
+  default_config_hash: qHdtze2DZ2mFfaJadxjZz6epm92_SN9SAFY4yJGl8Fo
+id: bootstrap_conversionhub_local_tasks
+theme: bootstrap_conversionhub
+region: header
+weight: -6
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: Tabs
+  provider: core
+  label_display: '0'
+  primary: true
+  secondary: true
+visibility: {  }

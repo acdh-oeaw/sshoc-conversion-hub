@@ -1,0 +1,28 @@
+uuid: 1000365c-8100-43e3-a664-c95af4161289
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.search_entities
+  module:
+    - system
+    - views
+  theme:
+    - bootstrap_conversionhub
+id: exposedformsearch_entitiespage_search
+theme: bootstrap_conversionhub
+region: header
+weight: -8
+provider: null
+plugin: 'views_exposed_filter_block:search_entities-page_search'
+settings:
+  id: 'views_exposed_filter_block:search_entities-page_search'
+  label: ''
+  provider: views
+  label_display: '0'
+  views_label: ''
+visibility:
+  request_path:
+    id: request_path
+    pages: '/admin/*'
+    negate: true

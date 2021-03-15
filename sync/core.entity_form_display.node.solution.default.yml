@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.solution.body
+    - field.field.node.solution.comment
     - field.field.node.solution.field_alternative_name
     - field.field.node.solution.field_application_category
     - field.field.node.solution.field_application_sub_category
@@ -30,6 +31,7 @@ dependencies:
     - field.field.node.solution.field_url
     - node.type.solution
   module:
+    - comment
     - datetime
     - field_group
     - link
@@ -44,7 +46,7 @@ third_party_settings:
         - field_output_format
         - field_output_format_comment
       parent_name: ''
-      weight: 11
+      weight: 12
       format_type: fieldset
       region: content
       format_settings:
@@ -61,7 +63,7 @@ third_party_settings:
         - field_operate_service
         - field_further_development
       parent_name: ''
-      weight: 12
+      weight: 13
       format_type: fieldset
       region: content
       format_settings:
@@ -81,7 +83,7 @@ third_party_settings:
         - field_last_modification_date
         - field_last_modification_text
       parent_name: ''
-      weight: 10
+      weight: 11
       format_type: fieldset
       region: content
       format_settings:
@@ -95,7 +97,7 @@ third_party_settings:
         - field_application_category
         - field_application_sub_category
       parent_name: ''
-      weight: 14
+      weight: 15
       format_type: fieldset
       region: content
       format_settings:
@@ -110,7 +112,7 @@ third_party_settings:
         - field_source
         - field_contact
       parent_name: ''
-      weight: 13
+      weight: 14
       format_type: fieldset
       region: content
       format_settings:
@@ -119,6 +121,21 @@ third_party_settings:
         description: ''
         required_fields: true
       label: References
+    group_main_information:
+      children:
+        - field_url
+        - field_alternative_name
+        - body
+      parent_name: ''
+      weight: 10
+      format_type: fieldset
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        required_fields: true
+      label: 'Main information'
 id: node.solution.default
 targetEntityType: node
 bundle: solution
@@ -126,13 +143,19 @@ mode: default
 content:
   body:
     type: text_textarea_with_summary
-    weight: 9
+    weight: 10
     settings:
       rows: 9
       summary_rows: 3
       placeholder: ''
       show_summary: false
     third_party_settings: {  }
+    region: content
+  comment:
+    weight: 30
+    settings: {  }
+    third_party_settings: {  }
+    type: comment_default
     region: content
   created:
     type: datetime_timestamp
@@ -141,7 +164,7 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_alternative_name:
-    weight: 7
+    weight: 9
     settings:
       size: 60
       placeholder: ''
@@ -360,5 +383,10 @@ content:
       placeholder: ''
       match_limit: 10
     region: content
+    third_party_settings: {  }
+  url_redirects:
+    weight: 16
+    region: content
+    settings: {  }
     third_party_settings: {  }
 hidden: {  }

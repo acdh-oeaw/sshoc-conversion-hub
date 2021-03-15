@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.solution.body
+    - field.field.node.solution.comment
     - field.field.node.solution.field_alternative_name
     - field.field.node.solution.field_application_category
     - field.field.node.solution.field_application_sub_category
@@ -52,6 +53,7 @@ content:
     third_party_settings: {  }
     region: content
 hidden:
+  comment: true
   field_alternative_name: true
   field_application_category: true
   field_application_sub_category: true

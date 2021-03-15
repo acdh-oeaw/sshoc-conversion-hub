@@ -6,7 +6,22 @@ dependencies:
     - field.field.taxonomy_term.formats.field_media_type
     - taxonomy.vocabulary.formats
   module:
+    - field_group
     - text
+third_party_settings:
+  field_group:
+    group_media_type:
+      children:
+        - field_media_type
+      parent_name: ''
+      weight: 1
+      format_type: fieldset
+      region: content
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+      label: 'Media type'
 id: taxonomy_term.formats.default
 targetEntityType: taxonomy_term
 bundle: formats
@@ -20,8 +35,8 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_media_type:
-    weight: 1
-    label: above
+    weight: 2
+    label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }

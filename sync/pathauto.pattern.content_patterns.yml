@@ -1,0 +1,24 @@
+uuid: 62727d30-7118-4fbf-ba9a-8d75ba91c3a4
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: content_patterns
+label: 'Content patterns'
+type: 'canonical_entities:node'
+pattern: '[node:content-type:machine-name]/[node:nid]'
+selection_criteria:
+  10824b31-4bab-4cb0-b002-963a4404ec5d:
+    id: node_type
+    bundles:
+      article: article
+      page: page
+      solution: solution
+    negate: false
+    context_mapping:
+      node: node
+    uuid: 10824b31-4bab-4cb0-b002-963a4404ec5d
+selection_logic: and
+weight: -5
+relationships: {  }

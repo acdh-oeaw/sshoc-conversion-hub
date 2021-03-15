@@ -1,0 +1,25 @@
+uuid: a88f4040-7549-45c4-8cca-c0acaef03bee
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:1f555167-b575-4e7b-9063-b014381c2c6d'
+  module:
+    - block_content
+  theme:
+    - bootstrap_conversionhub
+id: sshoclicense
+theme: bootstrap_conversionhub
+region: footer
+weight: -12
+provider: null
+plugin: 'block_content:1f555167-b575-4e7b-9063-b014381c2c6d'
+settings:
+  id: 'block_content:1f555167-b575-4e7b-9063-b014381c2c6d'
+  label: 'SSHOC license'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

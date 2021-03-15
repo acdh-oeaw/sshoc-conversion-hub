@@ -1,10 +1,10 @@
-uuid: b913014d-23d4-49ee-bc1e-cc7d729c83b2
+uuid: bc93f055-3e2b-460d-bf46-34ce9cf61115
 langcode: en
 status: true
 dependencies:
   config:
     - search_api.index.solution_entities
-    - views.view.search_entitites
+    - views.view.search_entities
   module:
     - search_api
 id: expected_level_of_knowledge_taxonomy_term_name
@@ -14,7 +14,7 @@ weight: 0
 min_count: 1
 show_only_one_result: false
 field_identifier: level_of_knowledge
-facet_source_id: 'search_api:views_page__search_entitites__page_search'
+facet_source_id: 'search_api:views_page__search_entities__page_search'
 widget:
   type: checkbox
   config:
@@ -43,13 +43,13 @@ processor_configs:
   count_widget_order:
     processor_id: count_widget_order
     weights:
-      sort: -9
+      sort: -10
     settings:
       sort: DESC
   display_value_widget_order:
     processor_id: display_value_widget_order
     weights:
-      sort: -10
+      sort: -9
     settings:
       sort: ASC
   url_processor_handler:

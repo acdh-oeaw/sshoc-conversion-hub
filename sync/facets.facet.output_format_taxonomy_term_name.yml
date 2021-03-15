@@ -1,10 +1,10 @@
-uuid: 5e2d8cad-ee21-497b-a7b9-13a5956733fb
+uuid: ae842961-02d3-401b-904e-61292a5acffc
 langcode: en
 status: true
 dependencies:
   config:
     - search_api.index.solution_entities
-    - views.view.search_entitites
+    - views.view.search_entities
   module:
     - search_api
 id: output_format_taxonomy_term_name
@@ -14,7 +14,7 @@ weight: 0
 min_count: 1
 show_only_one_result: false
 field_identifier: output_format
-facet_source_id: 'search_api:views_page__search_entitites__page_search'
+facet_source_id: 'search_api:views_page__search_entities__page_search'
 widget:
   type: checkbox
   config:

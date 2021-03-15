@@ -1,0 +1,30 @@
+uuid: 650cbbbf-19db-45c2-83de-f71ee560e642
+langcode: en
+status: true
+dependencies:
+  module:
+    - ctools
+    - taxonomy
+id: taxonomy_patterns
+label: 'Taxonomy patterns'
+type: 'canonical_entities:taxonomy_term'
+pattern: '[term:vocabulary]/[term:name]'
+selection_criteria:
+  1f39a878-6ead-4f3b-b92c-f71899a8694d:
+    id: 'entity_bundle:taxonomy_term'
+    bundles:
+      applications: applications
+      communities: communities
+      formats: formats
+      invocation_types: invocation_types
+      levels_of_knowledge: levels_of_knowledge
+      licenses: licenses
+      statuses: statuses
+      uses_of_solution: uses_of_solution
+    negate: false
+    context_mapping:
+      taxonomy_term: taxonomy_term
+    uuid: 1f39a878-6ead-4f3b-b92c-f71899a8694d
+selection_logic: and
+weight: -5
+relationships: {  }

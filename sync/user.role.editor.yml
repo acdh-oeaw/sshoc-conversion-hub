@@ -1,0 +1,43 @@
+uuid: 1126fd7f-9cc5-4311-90e8-b93971544647
+langcode: en
+status: true
+dependencies: {  }
+id: editor
+label: Editor
+weight: 3
+is_admin: null
+permissions:
+  - 'access content overview'
+  - 'access in-place editing'
+  - 'access taxonomy overview'
+  - 'access toolbar'
+  - 'create solution content'
+  - 'create terms in applications'
+  - 'create terms in communities'
+  - 'create terms in formats'
+  - 'create terms in invocation_types'
+  - 'create terms in levels_of_knowledge'
+  - 'create terms in licenses'
+  - 'create terms in statuses'
+  - 'create terms in uses_of_solution'
+  - 'delete own solution content'
+  - 'delete terms in applications'
+  - 'delete terms in communities'
+  - 'delete terms in formats'
+  - 'delete terms in invocation_types'
+  - 'delete terms in levels_of_knowledge'
+  - 'delete terms in licenses'
+  - 'delete terms in statuses'
+  - 'delete terms in uses_of_solution'
+  - 'edit any solution content'
+  - 'edit own solution content'
+  - 'edit terms in applications'
+  - 'edit terms in communities'
+  - 'edit terms in formats'
+  - 'edit terms in invocation_types'
+  - 'edit terms in levels_of_knowledge'
+  - 'edit terms in licenses'
+  - 'edit terms in statuses'
+  - 'edit terms in uses_of_solution'
+  - 'view own unpublished content'
+  - 'view solution revisions'

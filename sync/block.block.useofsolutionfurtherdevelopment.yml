@@ -1,0 +1,28 @@
+uuid: c07b0ff5-bf8a-42c2-bad8-46bf26f7f6d8
+langcode: en
+status: true
+dependencies:
+  config:
+    - facets.facet.use_of_solution_further_taxonomy_term_name
+  module:
+    - facets
+    - system
+  theme:
+    - bootstrap_conversionhub
+id: useofsolutionfurtherdevelopment
+theme: bootstrap_conversionhub
+region: sidebar_first
+weight: 0
+provider: null
+plugin: 'facet_block:use_of_solution_further_taxonomy_term_name'
+settings:
+  id: 'facet_block:use_of_solution_further_taxonomy_term_name'
+  label: 'Use of solution: Further development'
+  provider: facets
+  label_display: '0'
+  block_id: useofsolutionfurtherdevelopment
+visibility:
+  request_path:
+    id: request_path
+    pages: /search
+    negate: false

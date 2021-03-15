@@ -3,14 +3,18 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_community
     - field.storage.node.field_alternative_name
-    - field.storage.node.field_input_format
-    - field.storage.node.field_invocation_type
-    - field.storage.node.field_level_of_knowledge
-    - field.storage.node.field_output_format
+    - field.storage.node.field_community
     - field.storage.node.body
+    - field.storage.node.field_level_of_knowledge
+    - field.storage.node.field_input_format
+    - field.storage.taxonomy_term.field_media_type
+    - field.storage.node.field_invocation_type
+    - field.storage.node.field_output_format
     - field.storage.node.field_status
+    - field.storage.node.field_further_development
+    - field.storage.node.field_local_use
+    - field.storage.node.field_operate_service
     - search_api.server.conversion_hub_database
   module:
     - taxonomy
@@ -49,6 +53,17 @@ field_settings:
         - field.storage.node.field_input_format
       module:
         - taxonomy
+  input_format_media_type:
+    label: 'Input format » Taxonomy term » Media type'
+    datasource_id: 'entity:node'
+    property_path: 'field_input_format:entity:field_media_type'
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_input_format
+        - field.storage.taxonomy_term.field_media_type
+      module:
+        - taxonomy
   invocation_type:
     label: 'Invocation type » Taxonomy term » Name'
     datasource_id: 'entity:node'
@@ -79,6 +94,17 @@ field_settings:
         - field.storage.node.field_output_format
       module:
         - taxonomy
+  output_format_media_type:
+    label: 'Output format » Taxonomy term » Media type'
+    datasource_id: 'entity:node'
+    property_path: 'field_output_format:entity:field_media_type'
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_output_format
+        - field.storage.taxonomy_term.field_media_type
+      module:
+        - taxonomy
   processed:
     label: 'Description » Processed text'
     datasource_id: 'entity:node'
@@ -105,6 +131,44 @@ field_settings:
     dependencies:
       module:
         - node
+  type:
+    label: 'Content type'
+    datasource_id: 'entity:node'
+    property_path: type
+    type: string
+    dependencies:
+      module:
+        - node
+  use_solution_further:
+    label: 'Use of solution: Further development » Taxonomy term » Name'
+    datasource_id: 'entity:node'
+    property_path: 'field_further_development:entity:name'
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_further_development
+      module:
+        - taxonomy
+  use_solution_local:
+    label: 'Use of solution: Local use » Taxonomy term » Name'
+    datasource_id: 'entity:node'
+    property_path: 'field_local_use:entity:name'
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_local_use
+      module:
+        - taxonomy
+  use_solution_operate:
+    label: 'Use of solution: Operate service » Taxonomy term » Name'
+    datasource_id: 'entity:node'
+    property_path: 'field_operate_service:entity:name'
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_operate_service
+      module:
+        - taxonomy
 datasource_settings:
   'entity:node':
     bundles:

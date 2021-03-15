@@ -1,0 +1,28 @@
+uuid: e1eac358-7962-43e9-881d-1a8a60b68068
+langcode: en
+status: true
+dependencies:
+  config:
+    - facets.facet.use_of_solution_operate_taxonomy_term_name
+  module:
+    - facets
+    - system
+  theme:
+    - bootstrap_conversionhub
+id: useofsolutionoperateservice
+theme: bootstrap_conversionhub
+region: sidebar_first
+weight: -4
+provider: null
+plugin: 'facet_block:use_of_solution_operate_taxonomy_term_name'
+settings:
+  id: 'facet_block:use_of_solution_operate_taxonomy_term_name'
+  label: 'Use of solution: Operate service'
+  provider: facets
+  label_display: '0'
+  block_id: useofsolutionoperateservice
+visibility:
+  request_path:
+    id: request_path
+    pages: /search
+    negate: false

@@ -1,0 +1,28 @@
+uuid: 12a4d496-e3d3-468b-b253-e0a92216f440
+langcode: en
+status: true
+dependencies:
+  config:
+    - facets.facet.use_of_solution_local_taxonomy_term_name
+  module:
+    - facets
+    - system
+  theme:
+    - bootstrap_conversionhub
+id: useofsolutionlocaluse
+theme: bootstrap_conversionhub
+region: sidebar_first
+weight: -5
+provider: null
+plugin: 'facet_block:use_of_solution_local_taxonomy_term_name'
+settings:
+  id: 'facet_block:use_of_solution_local_taxonomy_term_name'
+  label: 'Use of solution: Local use'
+  provider: facets
+  label_display: '0'
+  block_id: useofsolutionlocaluse
+visibility:
+  request_path:
+    id: request_path
+    pages: /search
+    negate: false

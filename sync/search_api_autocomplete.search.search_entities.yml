@@ -1,0 +1,25 @@
+uuid: 55772057-b4fb-4f8c-9a7d-3c5b57d33db5
+langcode: en
+status: true
+dependencies:
+  config:
+    - search_api.index.solution_entities
+    - views.view.search_entities
+  module:
+    - views
+    - search_api_autocomplete
+id: search_entities
+label: 'Search entities'
+index_id: solution_entities
+suggester_settings:
+  live_results:
+    fields: {  }
+    view_modes: {  }
+suggester_weights: {  }
+suggester_limits: {  }
+search_settings:
+  'views:search_entities':
+    displays:
+      default: true
+      selected: {  }
+options: {  }

@@ -1,4 +1,4 @@
-uuid: 59ce3251-d898-45cd-a0dc-754b08660e73
+uuid: 14a126d6-9e4a-47ac-8c88-50940ef3b620
 langcode: en
 status: true
 dependencies:
@@ -8,11 +8,11 @@ dependencies:
     - facets
     - system
   theme:
-    - bootstrap
+    - bootstrap_conversionhub
 id: inputformat
-theme: bootstrap
+theme: bootstrap_conversionhub
 region: sidebar_first
-weight: -7
+weight: -8
 provider: null
 plugin: 'facet_block:input_format_taxonomy_term_name'
 settings:

@@ -42,7 +42,7 @@ display:
           expose_sort_order: true
           sort_asc_label: Asc
           sort_desc_label: Desc
-          text_input_required: 'Select any filter and click on Apply to see results'
+          text_input_required: 'Enter a query and click on Search to see results'
           text_input_required_format: basic_html
       pager:
         type: full
@@ -541,7 +541,7 @@ display:
           expose:
             label: ''
           plugin_id: search_api
-      title: Search
+      title: Solutions
       header:
         result:
           id: result
@@ -554,7 +554,20 @@ display:
           content: 'Displaying @start - @end of @total'
           plugin_id: result
       footer: {  }
-      empty: {  }
+      empty:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: true
+          tokenize: false
+          content:
+            value: 'Unfortunately, no solutions were found. Please try to rephrase your search query. You can show all solutions if you use search without entering a query.'
+            format: basic_html
+          plugin_id: text
       relationships: {  }
       arguments: {  }
       display_extenders: {  }
@@ -575,13 +588,78 @@ display:
     position: 1
     display_options:
       display_extenders: {  }
-      path: search
+      path: solutions
       display_description: ''
       exposed_block: true
       cache:
         type: none
       defaults:
         cache: false
+        filters: false
+        filter_groups: false
+        exposed_form: false
+      filters:
+        search_api_fulltext:
+          id: search_api_fulltext
+          table: search_api_index_solution_entities
+          field: search_api_fulltext
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: and
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: search_api_fulltext_op
+            label: ''
+            description: ''
+            use_operator: false
+            operator: search_api_fulltext_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: search
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              editor: '0'
+            placeholder: ''
+            expose_fields: false
+            searched_fields_id: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          parse_mode: terms
+          min_length: null
+          fields: {  }
+          plugin_id: search_api_fulltext
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+      exposed_form:
+        type: basic
+        options:
+          submit_button: Search
+          reset_button: false
+          reset_button_label: Reset
+          exposed_sorts_label: 'Sort by'
+          expose_sort_order: true
+          sort_asc_label: Asc
+          sort_desc_label: Desc
     cache_metadata:
       max-age: -1
       contexts:

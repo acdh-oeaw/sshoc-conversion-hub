@@ -17,4 +17,5 @@ permissions:
   - 'post comments'
   - 'search content'
   - 'skip comment approval'
+  - 'use search_api_autocomplete for search_entities'
   - 'use text format basic_html'

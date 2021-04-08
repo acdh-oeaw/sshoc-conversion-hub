@@ -13,4 +13,5 @@ permissions:
   - 'access content'
   - 'access site-wide contact form'
   - 'search content'
+  - 'use search_api_autocomplete for search_entities'
   - 'use text format restricted_html'

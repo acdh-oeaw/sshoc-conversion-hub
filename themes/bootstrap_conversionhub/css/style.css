@@ -36,16 +36,6 @@
   font-size: 15px;
 }
 
-.page-node-type-solution .layout__region--second,
-.path-search .region-sidebar-first {
-  padding: 15px;
-  border-left: 1px solid #EEE;
-  border-radius: 5px;
-  background-color: #FFF;
-  box-shadow: 2px 2px 5px #E1E1E1;
-  margin-bottom: 20px;
-}
-
 /*
  * Login in footer needs some adjustments
  */
@@ -260,6 +250,14 @@ section .block-field-blocknodesolutiontype .field--name-type {
   width: 0;
 }
 
+#views-exposed-form-search-entities-page-search .form-item-search #edit-search {
+  width: 100%;
+}
+
+#views-exposed-form-search-entities-page-search .form-item-search #edit-search--2 {
+  width: 100%;
+}
+
 /*
  * tables
  */
@@ -285,54 +283,63 @@ section .block-field-blocknodesolutiontype .field--name-type {
 /*
  * autocomplete display view
  */
-.autocomplete.contextual-region {
-  display: flex;
-  margin-bottom: 5px;
-  border-bottom: 2px solid beige;
-}
-
-.autocomplete h2 {
-  font-size: 16px;
-}
-
-.autocomplete .content {
-  display: flex;
-  flex-direction: column;
-}
-
-.autocomplete .form-item {
-  display: flex;
-  height: 100%;
-}
-
-.autocomplete img {
-  height: 22px;
-  margin-right: 5px;
-}
-
-.autocomplete .material-icons {
-  font-size: 1.2em;
-}
-
-.autocomplete .field {
-  margin-left: 15px;
-}
-
-.autocomplete .content .field--label-inline {
-  display: flex;
-}
-
-.autocomplete .content::before {
-  padding-left: 10px;
-}
-
-.ui-autocomplete a:hover, .ui-autocomplete a:link, .ui-autocomplete a:visited, .ui-autocomplete a:active {
-  color: black;
-}
+#.autocomplete.contextual-region {
+#  display: flex;
+#  margin-bottom: 5px;
+#  border-bottom: 2px solid beige;
+#}
+#
+#.autocomplete h2 {
+#  font-size: 16px;
+#}
+#
+#.autocomplete .content {
+#  display: flex;
+#  flex-direction: column;
+#}
+#
+#.autocomplete .form-item {
+#  display: flex;
+#  height: 100%;
+#}
+#
+#.autocomplete img {
+#  height: 22px;
+#  margin-right: 5px;
+#}
+#
+#.autocomplete .material-icons {
+#  font-size: 1.2em;
+#}
+#
+#.autocomplete .field {
+#  margin-left: 15px;
+#}
+#
+#.autocomplete .content .field--label-inline {
+#  display: flex;
+#}
+#
+#.autocomplete .content::before {
+#  padding-left: 10px;
+#}
+#
+#.ui-autocomplete a:hover, .ui-autocomplete a:link, .ui-autocomplete a:visited, .ui-autocomplete a:active {
+#  color: black;
+#}
 
 /*
  * facets
  */
+.block-facets {
+  padding: 0 15px 15px 15px;
+  background-color: #FFF;
+  border-left: 1px solid #EEE;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px #E1E1E1;
+  margin-bottom: 20px;
+}
+
 .block-facets h3 {
   font-size: 18px;
   padding-top: 10px;

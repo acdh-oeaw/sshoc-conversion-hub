@@ -283,50 +283,32 @@ section .block-field-blocknodesolutiontype .field--name-type {
 /*
  * autocomplete display view
  */
-#.autocomplete.contextual-region {
-#  display: flex;
-#  margin-bottom: 5px;
-#  border-bottom: 2px solid beige;
-#}
-#
-#.autocomplete h2 {
-#  font-size: 16px;
-#}
-#
-#.autocomplete .content {
-#  display: flex;
-#  flex-direction: column;
-#}
-#
-#.autocomplete .form-item {
-#  display: flex;
-#  height: 100%;
-#}
-#
-#.autocomplete img {
-#  height: 22px;
-#  margin-right: 5px;
-#}
-#
-#.autocomplete .material-icons {
-#  font-size: 1.2em;
-#}
-#
-#.autocomplete .field {
-#  margin-left: 15px;
-#}
-#
-#.autocomplete .content .field--label-inline {
-#  display: flex;
-#}
-#
-#.autocomplete .content::before {
-#  padding-left: 10px;
-#}
-#
-#.ui-autocomplete a:hover, .ui-autocomplete a:link, .ui-autocomplete a:visited, .ui-autocomplete a:active {
-#  color: black;
-#}
+.ui-autocomplete article {
+  display: flex;
+  margin-bottom: 5px;
+  border-bottom: 2px solid lightgray;
+}
+
+.ui-autocomplete h2 {
+  font-size: 18px;
+  width: 40%;
+}
+
+.ui-autocomplete .content {
+  display: flex;
+  align-items: center;
+  width: 60%;
+}
+
+.ui-autocomplete .content .field {
+  width: 50%;
+  margin-left: 5px;
+  font-size: 14px;
+}
+
+.ui-autocomplete a:hover, .ui-autocomplete a:link, .ui-autocomplete a:visited, .ui-autocomplete a:active {
+  color: black;
+}
 
 /*
  * facets

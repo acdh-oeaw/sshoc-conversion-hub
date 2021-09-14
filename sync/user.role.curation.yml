@@ -1,0 +1,19 @@
+uuid: d7863713-13f2-4b78-a676-ff9dc4a367d4
+langcode: en
+status: true
+dependencies: {  }
+id: curation
+label: Curation
+weight: 4
+is_admin: null
+permissions:
+  - 'access content overview'
+  - 'access in-place editing'
+  - 'access taxonomy overview'
+  - 'access toolbar'
+  - 'create solution content'
+  - 'delete own solution content'
+  - 'edit any solution content'
+  - 'edit own solution content'
+  - 'view own unpublished content'
+  - 'view solution revisions'

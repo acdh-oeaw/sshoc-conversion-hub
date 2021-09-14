@@ -1,0 +1,14 @@
+uuid: 07761420-e81c-4018-a376-dbb18e272cff
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.curation
+  module:
+    - user
+id: user_remove_role_action.curation
+label: 'Remove the Curation role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: curation

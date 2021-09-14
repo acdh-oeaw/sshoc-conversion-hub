@@ -14,6 +14,7 @@ dependencies:
     - field.field.node.solution.field_input_format
     - field.field.node.solution.field_input_format_comment
     - field.field.node.solution.field_invocation_type
+    - field.field.node.solution.field_isrecipe
     - field.field.node.solution.field_last_modification_date
     - field.field.node.solution.field_last_modification_text
     - field.field.node.solution.field_level_of_knowledge
@@ -25,6 +26,7 @@ dependencies:
     - field.field.node.solution.field_output_format_comment
     - field.field.node.solution.field_publication_date
     - field.field.node.solution.field_publication_text
+    - field.field.node.solution.field_related_tools
     - field.field.node.solution.field_see_also
     - field.field.node.solution.field_source
     - field.field.node.solution.field_status
@@ -46,7 +48,7 @@ third_party_settings:
         - field_output_format
         - field_output_format_comment
       parent_name: ''
-      weight: 12
+      weight: 10
       format_type: fieldset
       region: content
       format_settings:
@@ -63,7 +65,7 @@ third_party_settings:
         - field_operate_service
         - field_further_development
       parent_name: ''
-      weight: 13
+      weight: 11
       format_type: fieldset
       region: content
       format_settings:
@@ -83,7 +85,7 @@ third_party_settings:
         - field_last_modification_date
         - field_last_modification_text
       parent_name: ''
-      weight: 11
+      weight: 9
       format_type: fieldset
       region: content
       format_settings:
@@ -97,7 +99,7 @@ third_party_settings:
         - field_application_category
         - field_application_sub_category
       parent_name: ''
-      weight: 15
+      weight: 13
       format_type: fieldset
       region: content
       format_settings:
@@ -109,10 +111,11 @@ third_party_settings:
     group_references:
       children:
         - field_see_also
+        - field_related_tools
         - field_source
         - field_contact
       parent_name: ''
-      weight: 14
+      weight: 12
       format_type: fieldset
       region: content
       format_settings:
@@ -123,11 +126,12 @@ third_party_settings:
       label: References
     group_main_information:
       children:
+        - field_isrecipe
         - field_url
         - field_alternative_name
         - body
       parent_name: ''
-      weight: 10
+      weight: 7
       format_type: fieldset
       region: content
       format_settings:
@@ -143,7 +147,7 @@ mode: default
 content:
   body:
     type: text_textarea_with_summary
-    weight: 10
+    weight: 11
     settings:
       rows: 9
       summary_rows: 3
@@ -152,7 +156,7 @@ content:
     third_party_settings: {  }
     region: content
   comment:
-    weight: 30
+    weight: 15
     settings: {  }
     third_party_settings: {  }
     type: comment_default
@@ -164,7 +168,7 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_alternative_name:
-    weight: 9
+    weight: 10
     settings:
       size: 60
       placeholder: ''
@@ -190,7 +194,7 @@ content:
     type: options_buttons
     region: content
   field_contact:
-    weight: 18
+    weight: 19
     settings:
       size: 60
       placeholder: ''
@@ -226,6 +230,13 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: options_buttons
+    region: content
+  field_isrecipe:
+    weight: 8
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
     region: content
   field_last_modification_date:
     weight: 15
@@ -309,6 +320,16 @@ content:
     third_party_settings: {  }
     type: string_textfield
     region: content
+  field_related_tools:
+    weight: 17
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
   field_see_also:
     weight: 16
     settings:
@@ -318,7 +339,7 @@ content:
     type: link_default
     region: content
   field_source:
-    weight: 17
+    weight: 18
     settings:
       placeholder_url: ''
       placeholder_title: ''
@@ -332,7 +353,7 @@ content:
     type: options_buttons
     region: content
   field_url:
-    weight: 8
+    weight: 9
     settings:
       placeholder_url: ''
       placeholder_title: ''
@@ -385,7 +406,7 @@ content:
     region: content
     third_party_settings: {  }
   url_redirects:
-    weight: 16
+    weight: 14
     region: content
     settings: {  }
     third_party_settings: {  }

@@ -12,7 +12,7 @@ dependencies:
 id: outputformat
 theme: bootstrap_conversionhub
 region: sidebar_first
-weight: -7
+weight: -9
 provider: null
 plugin: 'facet_block:output_format_taxonomy_term_name'
 settings:

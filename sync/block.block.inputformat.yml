@@ -12,7 +12,7 @@ dependencies:
 id: inputformat
 theme: bootstrap_conversionhub
 region: sidebar_first
-weight: -8
+weight: -10
 provider: null
 plugin: 'facet_block:input_format_taxonomy_term_name'
 settings:

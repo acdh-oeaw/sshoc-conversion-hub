@@ -12,7 +12,7 @@ dependencies:
 id: expectedlevelofknowledge
 theme: bootstrap_conversionhub
 region: sidebar_first
-weight: -10
+weight: -12
 provider: null
 plugin: 'facet_block:expected_level_of_knowledge_taxonomy_term_name'
 settings:

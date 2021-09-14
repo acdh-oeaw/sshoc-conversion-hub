@@ -1,0 +1,10 @@
+uuid: 310309c0-e237-4686-ba6a-0219fe861fca
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.autocomplete_preview
+label: 'Autocomplete preview'
+targetEntityType: node
+cache: true

@@ -12,7 +12,7 @@ dependencies:
 id: useofsolutionfurtherdevelopment
 theme: bootstrap_conversionhub
 region: sidebar_first
-weight: 0
+weight: -5
 provider: null
 plugin: 'facet_block:use_of_solution_further_taxonomy_term_name'
 settings:

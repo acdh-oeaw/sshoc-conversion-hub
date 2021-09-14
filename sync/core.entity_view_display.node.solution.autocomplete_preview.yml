@@ -1,0 +1,183 @@
+uuid: 96c779bf-40e2-4437-acd4-fe54336df5b8
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.autocomplete_preview
+    - field.field.node.solution.body
+    - field.field.node.solution.comment
+    - field.field.node.solution.field_alternative_name
+    - field.field.node.solution.field_application_category
+    - field.field.node.solution.field_application_sub_category
+    - field.field.node.solution.field_community
+    - field.field.node.solution.field_contact
+    - field.field.node.solution.field_further_development
+    - field.field.node.solution.field_input_format
+    - field.field.node.solution.field_input_format_comment
+    - field.field.node.solution.field_invocation_type
+    - field.field.node.solution.field_isrecipe
+    - field.field.node.solution.field_last_modification_date
+    - field.field.node.solution.field_last_modification_text
+    - field.field.node.solution.field_level_of_knowledge
+    - field.field.node.solution.field_license
+    - field.field.node.solution.field_license_text
+    - field.field.node.solution.field_local_use
+    - field.field.node.solution.field_operate_service
+    - field.field.node.solution.field_output_format
+    - field.field.node.solution.field_output_format_comment
+    - field.field.node.solution.field_publication_date
+    - field.field.node.solution.field_publication_text
+    - field.field.node.solution.field_related_tools
+    - field.field.node.solution.field_see_also
+    - field.field.node.solution.field_source
+    - field.field.node.solution.field_status
+    - field.field.node.solution.field_url
+    - node.type.solution
+  module:
+    - field_group
+    - layout_builder
+    - user
+third_party_settings:
+  field_group:
+    group_formats:
+      children:
+        - field_input_format_comment
+        - field_output_format_comment
+      parent_name: ''
+      weight: 2
+      format_type: fieldset
+      region: hidden
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+      label: Formats
+    group_usage:
+      children:
+        - field_further_development
+        - field_license
+        - field_license_text
+        - field_local_use
+        - field_operate_service
+      parent_name: ''
+      weight: 10
+      format_type: fieldset
+      region: hidden
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+      label: Usage
+    group_contexts:
+      children:
+        - field_community
+        - field_invocation_type
+        - field_last_modification_date
+        - field_last_modification_text
+        - field_level_of_knowledge
+        - field_publication_date
+        - field_publication_text
+        - field_status
+      parent_name: ''
+      weight: 9
+      format_type: fieldset
+      region: hidden
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+      label: Contexts
+    group_categories:
+      children:
+        - field_application_category
+        - field_application_sub_category
+      parent_name: ''
+      weight: 12
+      format_type: fieldset
+      region: hidden
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+      label: Categories
+    group_references:
+      children:
+        - field_contact
+        - field_see_also
+        - field_source
+      parent_name: ''
+      weight: 11
+      format_type: fieldset
+      region: hidden
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+      label: References
+    group_main_information:
+      children:
+        - body
+        - field_alternative_name
+        - field_url
+      parent_name: ''
+      weight: 8
+      format_type: fieldset
+      region: hidden
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+      label: 'Main information'
+  layout_builder:
+    allow_custom: false
+    enabled: false
+id: node.solution.autocomplete_preview
+targetEntityType: node
+bundle: solution
+mode: autocomplete_preview
+content:
+  field_input_format:
+    weight: 0
+    label: inline
+    settings:
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_output_format:
+    weight: 1
+    label: inline
+    settings:
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+hidden:
+  body: true
+  comment: true
+  field_alternative_name: true
+  field_application_category: true
+  field_application_sub_category: true
+  field_community: true
+  field_contact: true
+  field_further_development: true
+  field_input_format_comment: true
+  field_invocation_type: true
+  field_isrecipe: true
+  field_last_modification_date: true
+  field_last_modification_text: true
+  field_level_of_knowledge: true
+  field_license: true
+  field_license_text: true
+  field_local_use: true
+  field_operate_service: true
+  field_output_format_comment: true
+  field_publication_date: true
+  field_publication_text: true
+  field_related_tools: true
+  field_see_also: true
+  field_source: true
+  field_status: true
+  field_url: true
+  links: true
+  search_api_excerpt: true

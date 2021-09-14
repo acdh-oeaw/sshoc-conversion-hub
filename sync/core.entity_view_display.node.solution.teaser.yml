@@ -15,6 +15,7 @@ dependencies:
     - field.field.node.solution.field_input_format
     - field.field.node.solution.field_input_format_comment
     - field.field.node.solution.field_invocation_type
+    - field.field.node.solution.field_isrecipe
     - field.field.node.solution.field_last_modification_date
     - field.field.node.solution.field_last_modification_text
     - field.field.node.solution.field_level_of_knowledge
@@ -26,6 +27,7 @@ dependencies:
     - field.field.node.solution.field_output_format_comment
     - field.field.node.solution.field_publication_date
     - field.field.node.solution.field_publication_text
+    - field.field.node.solution.field_related_tools
     - field.field.node.solution.field_see_also
     - field.field.node.solution.field_source
     - field.field.node.solution.field_status
@@ -63,6 +65,7 @@ hidden:
   field_input_format: true
   field_input_format_comment: true
   field_invocation_type: true
+  field_isrecipe: true
   field_last_modification_date: true
   field_last_modification_text: true
   field_level_of_knowledge: true
@@ -74,6 +77,7 @@ hidden:
   field_output_format_comment: true
   field_publication_date: true
   field_publication_text: true
+  field_related_tools: true
   field_see_also: true
   field_source: true
   field_status: true

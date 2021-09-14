@@ -5,6 +5,7 @@ dependencies:
   config:
     - search_api.index.solution_entities
     - views.view.search_entities
+    - core.entity_view_mode.node.autocomplete_preview
   module:
     - views
     - search_api_autocomplete
@@ -14,12 +15,24 @@ index_id: solution_entities
 suggester_settings:
   live_results:
     fields: {  }
-    view_modes: {  }
-suggester_weights: {  }
+    view_modes:
+      'entity:node':
+        solution: autocomplete_preview
+    highlight:
+      enabled: false
+      field: ''
+suggester_weights:
+  live_results: 0
 suggester_limits: {  }
 search_settings:
   'views:search_entities':
     displays:
       default: true
       selected: {  }
-options: {  }
+options:
+  limit: 10
+  min_length: 1
+  show_count: false
+  autosubmit: true
+  submit_button_selector: ':submit'
+  delay: null

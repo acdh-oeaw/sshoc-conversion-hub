@@ -1,0 +1,29 @@
+uuid: ed720fe1-3d08-48b2-94b8-b1533616b1a3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_related_tools
+    - node.type.solution
+    - taxonomy.vocabulary.tools
+id: node.solution.field_related_tools
+field_name: field_related_tools
+entity_type: node
+bundle: solution
+label: 'Related tools'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      tools: tools
+    sort:
+      field: name
+      direction: asc
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

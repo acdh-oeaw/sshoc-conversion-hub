@@ -1,10 +1,10 @@
-uuid: 1126fd7f-9cc5-4311-90e8-b93971544647
+uuid: 6fdc3e53-7eb6-47cb-903b-5261be164569
 langcode: en
 status: true
 dependencies: {  }
-id: editor
-label: Editor
-weight: 3
+id: moderation
+label: Moderation
+weight: 5
 is_admin: null
 permissions:
   - 'access content overview'
@@ -20,6 +20,7 @@ permissions:
   - 'create terms in licenses'
   - 'create terms in statuses'
   - 'create terms in uses_of_solution'
+  - 'delete any solution content'
   - 'delete own solution content'
   - 'delete terms in applications'
   - 'delete terms in communities'
@@ -39,5 +40,7 @@ permissions:
   - 'edit terms in licenses'
   - 'edit terms in statuses'
   - 'edit terms in uses_of_solution'
+  - 'revert all revisions'
+  - 'view all revisions'
   - 'view own unpublished content'
   - 'view solution revisions'

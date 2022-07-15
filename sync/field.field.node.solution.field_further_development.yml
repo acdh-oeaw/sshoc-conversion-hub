@@ -10,7 +10,7 @@ id: node.solution.field_further_development
 field_name: field_further_development
 entity_type: node
 bundle: solution
-label: 'Use of solution: Further development'
+label: 'Condition of use: Further development'
 description: ''
 required: false
 translatable: false

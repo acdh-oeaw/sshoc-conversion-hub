@@ -1,37 +1,38 @@
-uuid: f2f4cd80-cc3a-4f8a-a149-14aafd78fc0d
+uuid: 0281df99-0036-446c-85bd-b86c01397873
 langcode: en
 status: true
 dependencies:
   config:
-    - field.field.taxonomy_term.formats.field_media_type
-    - taxonomy.vocabulary.formats
+    - field.field.taxonomy_term.licenses.field_license_url
+    - taxonomy.vocabulary.licenses
   module:
+    - link
     - path
     - text
-id: taxonomy_term.formats.default
+id: taxonomy_term.licenses.default
 targetEntityType: taxonomy_term
-bundle: formats
+bundle: licenses
 mode: default
 content:
   description:
-    type: text_textfield
-    weight: 0
+    type: text_textarea
+    weight: 1
     region: content
     settings:
-      size: 60
+      rows: 5
       placeholder: ''
     third_party_settings: {  }
-  field_media_type:
-    type: string_textfield
-    weight: 101
+  field_license_url:
+    type: link_default
+    weight: 2
     region: content
     settings:
-      size: 60
-      placeholder: ''
+      placeholder_url: ''
+      placeholder_title: ''
     third_party_settings: {  }
   name:
     type: string_textfield
-    weight: -5
+    weight: 0
     region: content
     settings:
       size: 60
@@ -39,13 +40,13 @@ content:
     third_party_settings: {  }
   path:
     type: path
-    weight: 30
+    weight: 3
     region: content
     settings: {  }
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 100
+    weight: 4
     region: content
     settings:
       display_label: true

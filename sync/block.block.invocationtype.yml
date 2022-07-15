@@ -18,11 +18,11 @@ plugin: 'facet_block:invocation_type_taxonomy_term_name'
 settings:
   id: 'facet_block:invocation_type_taxonomy_term_name'
   label: 'Invocation type'
-  provider: facets
   label_display: '0'
+  provider: facets
   block_id: invocationtype
 visibility:
   request_path:
     id: request_path
-    pages: "/search\r\n<front>"
     negate: false
+    pages: "/search\r\n<front>"

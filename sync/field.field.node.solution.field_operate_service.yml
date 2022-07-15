@@ -10,7 +10,7 @@ id: node.solution.field_operate_service
 field_name: field_operate_service
 entity_type: node
 bundle: solution
-label: 'Use of solution: Operate service'
+label: 'Condition of use: Operate service'
 description: ''
 required: false
 translatable: false

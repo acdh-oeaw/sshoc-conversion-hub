@@ -17,8 +17,8 @@ plugin: 'block_content:1f555167-b575-4e7b-9063-b014381c2c6d'
 settings:
   id: 'block_content:1f555167-b575-4e7b-9063-b014381c2c6d'
   label: 'SSHOC license'
-  provider: block_content
   label_display: '0'
+  provider: block_content
   status: true
   info: ''
   view_mode: full

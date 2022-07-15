@@ -10,7 +10,7 @@ id: node.solution.field_local_use
 field_name: field_local_use
 entity_type: node
 bundle: solution
-label: 'Use of solution: Local use'
+label: 'Condition of use: Local use'
 description: ''
 required: false
 translatable: false

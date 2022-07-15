@@ -1,18 +1,16 @@
-uuid: 8baa7c58-15c0-4720-935b-b5a69a73c608
+uuid: 1f0c8cfc-67c7-4809-9ee9-a5366f35bae2
 langcode: en
 status: true
 dependencies:
   module:
+    - link
     - taxonomy
-id: taxonomy_term.field_media_type
-field_name: field_media_type
+id: taxonomy_term.field_license_url
+field_name: field_license_url
 entity_type: taxonomy_term
-type: string
-settings:
-  max_length: 255
-  case_sensitive: false
-  is_ascii: false
-module: core
+type: link
+settings: {  }
+module: link
 locked: false
 cardinality: 1
 translatable: true

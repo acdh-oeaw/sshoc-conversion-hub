@@ -17,8 +17,8 @@ plugin: 'block_content:a52062d6-29ce-43de-96c7-6722ef1dee17'
 settings:
   id: 'block_content:a52062d6-29ce-43de-96c7-6722ef1dee17'
   label: 'SSHOC footer'
-  provider: block_content
   label_display: '0'
+  provider: block_content
   status: true
   info: ''
   view_mode: full

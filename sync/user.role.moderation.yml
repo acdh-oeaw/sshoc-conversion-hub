@@ -1,7 +1,23 @@
 uuid: 6fdc3e53-7eb6-47cb-903b-5261be164569
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  config:
+    - node.type.solution
+    - taxonomy.vocabulary.applications
+    - taxonomy.vocabulary.communities
+    - taxonomy.vocabulary.formats
+    - taxonomy.vocabulary.invocation_types
+    - taxonomy.vocabulary.levels_of_knowledge
+    - taxonomy.vocabulary.licenses
+    - taxonomy.vocabulary.statuses
+    - taxonomy.vocabulary.tools
+    - taxonomy.vocabulary.uses_of_solution
+  module:
+    - node
+    - quickedit
+    - taxonomy
+    - toolbar
 id: moderation
 label: Moderation
 weight: 5
@@ -19,6 +35,7 @@ permissions:
   - 'create terms in levels_of_knowledge'
   - 'create terms in licenses'
   - 'create terms in statuses'
+  - 'create terms in tools'
   - 'create terms in uses_of_solution'
   - 'delete any solution content'
   - 'delete own solution content'
@@ -29,6 +46,7 @@ permissions:
   - 'delete terms in levels_of_knowledge'
   - 'delete terms in licenses'
   - 'delete terms in statuses'
+  - 'delete terms in tools'
   - 'delete terms in uses_of_solution'
   - 'edit any solution content'
   - 'edit own solution content'
@@ -39,6 +57,7 @@ permissions:
   - 'edit terms in levels_of_knowledge'
   - 'edit terms in licenses'
   - 'edit terms in statuses'
+  - 'edit terms in tools'
   - 'edit terms in uses_of_solution'
   - 'revert all revisions'
   - 'view all revisions'

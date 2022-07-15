@@ -18,11 +18,11 @@ plugin: 'facet_block:is_a_recipe'
 settings:
   id: 'facet_block:is_a_recipe'
   label: Recipe
-  provider: facets
   label_display: '0'
+  provider: facets
   block_id: recipe
 visibility:
   request_path:
     id: request_path
-    pages: "/search\r\n<front>"
     negate: false
+    pages: "/search\r\n<front>"

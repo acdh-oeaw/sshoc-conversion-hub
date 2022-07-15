@@ -17,12 +17,13 @@ provider: null
 plugin: 'facet_block:use_of_solution_local_taxonomy_term_name'
 settings:
   id: 'facet_block:use_of_solution_local_taxonomy_term_name'
-  label: 'Use of solution: Local use'
-  provider: facets
+  label: 'Condition of use: Local use'
   label_display: '0'
+  provider: facets
+  context_mapping: {  }
   block_id: useofsolutionlocaluse
 visibility:
   request_path:
     id: request_path
-    pages: "/search\r\n<front>"
     negate: false
+    pages: "/search\r\n<front>"

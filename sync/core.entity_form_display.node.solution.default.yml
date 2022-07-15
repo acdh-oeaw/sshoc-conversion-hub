@@ -47,16 +47,16 @@ third_party_settings:
         - field_input_format_comment
         - field_output_format
         - field_output_format_comment
+      label: Formats
+      region: content
       parent_name: ''
       weight: 10
       format_type: fieldset
-      region: content
       format_settings:
-        id: ''
         classes: ''
+        id: ''
         description: ''
         required_fields: true
-      label: Formats
     group_usage:
       children:
         - field_license
@@ -64,16 +64,16 @@ third_party_settings:
         - field_local_use
         - field_operate_service
         - field_further_development
+      label: Usage
+      region: content
       parent_name: ''
       weight: 11
       format_type: fieldset
-      region: content
       format_settings:
-        id: ''
         classes: ''
+        id: ''
         description: ''
         required_fields: true
-      label: Usage
     group_contexts:
       children:
         - field_status
@@ -84,62 +84,62 @@ third_party_settings:
         - field_publication_text
         - field_last_modification_date
         - field_last_modification_text
+      label: Contexts
+      region: content
       parent_name: ''
       weight: 9
       format_type: fieldset
-      region: content
       format_settings:
-        id: ''
         classes: ''
+        id: ''
         description: ''
         required_fields: true
-      label: Contexts
     group_categories:
       children:
         - field_application_category
         - field_application_sub_category
+      label: Categories
+      region: content
       parent_name: ''
       weight: 13
       format_type: fieldset
-      region: content
       format_settings:
-        id: ''
         classes: ''
+        id: ''
         description: ''
         required_fields: true
-      label: Categories
     group_references:
       children:
         - field_see_also
         - field_related_tools
         - field_source
         - field_contact
+      label: References
+      region: content
       parent_name: ''
       weight: 12
       format_type: fieldset
-      region: content
       format_settings:
-        id: ''
         classes: ''
+        id: ''
         description: ''
         required_fields: true
-      label: References
     group_main_information:
       children:
         - field_isrecipe
         - field_url
         - field_alternative_name
         - body
+      label: 'Main information'
+      region: content
       parent_name: ''
       weight: 7
       format_type: fieldset
-      region: content
       format_settings:
-        id: ''
         classes: ''
+        id: ''
         description: ''
         required_fields: true
-      label: 'Main information'
 id: node.solution.default
 targetEntityType: node
 bundle: solution
@@ -148,19 +148,19 @@ content:
   body:
     type: text_textarea_with_summary
     weight: 11
+    region: content
     settings:
       rows: 9
       summary_rows: 3
       placeholder: ''
       show_summary: false
     third_party_settings: {  }
-    region: content
   comment:
+    type: comment_default
     weight: 15
+    region: content
     settings: {  }
     third_party_settings: {  }
-    type: comment_default
-    region: content
   created:
     type: datetime_timestamp
     weight: 2
@@ -168,198 +168,198 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_alternative_name:
-    weight: 10
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
     type: string_textfield
-    region: content
-  field_application_category:
-    weight: 17
-    settings: {  }
-    third_party_settings: {  }
-    type: options_select
-    region: content
-  field_application_sub_category:
-    weight: 18
-    settings: {  }
-    third_party_settings: {  }
-    type: options_select
-    region: content
-  field_community:
     weight: 10
-    settings: {  }
-    third_party_settings: {  }
-    type: options_buttons
     region: content
-  field_contact:
-    weight: 19
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: text_textfield
+  field_application_category:
+    type: options_select
+    weight: 17
     region: content
-  field_further_development:
-    weight: 29
     settings: {  }
     third_party_settings: {  }
+  field_application_sub_category:
     type: options_select
+    weight: 18
     region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_community:
+    type: options_buttons
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_contact:
+    type: text_textfield
+    weight: 19
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_further_development:
+    type: options_select
+    weight: 29
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   field_input_format:
+    type: entity_reference_autocomplete
     weight: 12
+    region: content
     settings:
       match_operator: CONTAINS
       match_limit: 10
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: entity_reference_autocomplete
-    region: content
   field_input_format_comment:
+    type: text_textarea
     weight: 13
+    region: content
     settings:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
-    type: text_textarea
-    region: content
   field_invocation_type:
+    type: options_buttons
     weight: 11
+    region: content
     settings: {  }
     third_party_settings: {  }
-    type: options_buttons
-    region: content
   field_isrecipe:
+    type: boolean_checkbox
     weight: 8
+    region: content
     settings:
       display_label: true
     third_party_settings: {  }
-    type: boolean_checkbox
-    region: content
   field_last_modification_date:
-    weight: 15
-    settings: {  }
-    third_party_settings: {  }
     type: datetime_default
+    weight: 15
     region: content
+    settings: {  }
+    third_party_settings: {  }
   field_last_modification_text:
+    type: string_textfield
     weight: 16
+    region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: string_textfield
-    region: content
   field_level_of_knowledge:
+    type: options_select
     weight: 12
+    region: content
     settings: {  }
     third_party_settings: {  }
-    type: options_select
-    region: content
   field_license:
+    type: entity_reference_autocomplete
     weight: 25
+    region: content
     settings:
       match_operator: CONTAINS
       match_limit: 10
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: entity_reference_autocomplete
-    region: content
   field_license_text:
+    type: string_textfield
     weight: 26
+    region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: string_textfield
-    region: content
   field_local_use:
+    type: options_select
     weight: 27
+    region: content
     settings: {  }
     third_party_settings: {  }
-    type: options_select
-    region: content
   field_operate_service:
+    type: options_select
     weight: 28
+    region: content
     settings: {  }
     third_party_settings: {  }
-    type: options_select
-    region: content
   field_output_format:
+    type: entity_reference_autocomplete
     weight: 14
+    region: content
     settings:
       match_operator: CONTAINS
       match_limit: 10
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: entity_reference_autocomplete
-    region: content
   field_output_format_comment:
+    type: text_textarea
     weight: 16
+    region: content
     settings:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
-    type: text_textarea
-    region: content
   field_publication_date:
+    type: datetime_default
     weight: 13
+    region: content
     settings: {  }
     third_party_settings: {  }
-    type: datetime_default
-    region: content
   field_publication_text:
+    type: string_textfield
     weight: 14
+    region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: string_textfield
-    region: content
   field_related_tools:
+    type: entity_reference_autocomplete
     weight: 17
+    region: content
     settings:
       match_operator: CONTAINS
       match_limit: 10
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: entity_reference_autocomplete
-    region: content
   field_see_also:
+    type: link_default
     weight: 16
+    region: content
     settings:
       placeholder_url: ''
       placeholder_title: ''
     third_party_settings: {  }
-    type: link_default
-    region: content
   field_source:
+    type: link_default
     weight: 18
+    region: content
     settings:
       placeholder_url: ''
       placeholder_title: ''
     third_party_settings: {  }
-    type: link_default
-    region: content
   field_status:
+    type: options_buttons
     weight: 9
+    region: content
     settings: {  }
     third_party_settings: {  }
-    type: options_buttons
-    region: content
   field_url:
+    type: link_default
     weight: 9
+    region: content
     settings:
       placeholder_url: ''
       placeholder_title: ''
     third_party_settings: {  }
-    type: link_default
-    region: content
   path:
     type: path
     weight: 5
@@ -368,24 +368,24 @@ content:
     third_party_settings: {  }
   promote:
     type: boolean_checkbox
-    settings:
-      display_label: true
     weight: 3
     region: content
+    settings:
+      display_label: true
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    settings:
-      display_label: true
     weight: 6
     region: content
+    settings:
+      display_label: true
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
-    settings:
-      display_label: true
     weight: 4
     region: content
+    settings:
+      display_label: true
     third_party_settings: {  }
   title:
     type: string_textfield
@@ -398,12 +398,12 @@ content:
   uid:
     type: entity_reference_autocomplete
     weight: 1
+    region: content
     settings:
       match_operator: CONTAINS
+      match_limit: 10
       size: 60
       placeholder: ''
-      match_limit: 10
-    region: content
     third_party_settings: {  }
   url_redirects:
     weight: 14

@@ -17,12 +17,13 @@ provider: null
 plugin: 'facet_block:use_of_solution_further_taxonomy_term_name'
 settings:
   id: 'facet_block:use_of_solution_further_taxonomy_term_name'
-  label: 'Use of solution: Further development'
-  provider: facets
+  label: 'Condition of use: Further development'
   label_display: '0'
+  provider: facets
+  context_mapping: {  }
   block_id: useofsolutionfurtherdevelopment
 visibility:
   request_path:
     id: request_path
-    pages: "/search\r\n<front>"
     negate: false
+    pages: "/search\r\n<front>"

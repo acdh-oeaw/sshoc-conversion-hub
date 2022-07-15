@@ -15,12 +15,12 @@ index_id: solution_entities
 suggester_settings:
   live_results:
     fields: {  }
-    view_modes:
-      'entity:node':
-        solution: autocomplete_preview
     highlight:
       enabled: false
       field: ''
+    view_modes:
+      'entity:node':
+        solution: autocomplete_preview
 suggester_weights:
   live_results: 0
 suggester_limits: {  }
@@ -33,6 +33,6 @@ options:
   limit: 10
   min_length: 1
   show_count: false
-  autosubmit: true
-  submit_button_selector: ':submit'
   delay: null
+  submit_button_selector: ':submit'
+  autosubmit: true

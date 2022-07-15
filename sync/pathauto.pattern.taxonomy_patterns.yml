@@ -12,6 +12,10 @@ pattern: '[term:vocabulary]/[term:name]'
 selection_criteria:
   1f39a878-6ead-4f3b-b92c-f71899a8694d:
     id: 'entity_bundle:taxonomy_term'
+    negate: false
+    uuid: 1f39a878-6ead-4f3b-b92c-f71899a8694d
+    context_mapping:
+      taxonomy_term: taxonomy_term
     bundles:
       applications: applications
       communities: communities
@@ -21,10 +25,6 @@ selection_criteria:
       licenses: licenses
       statuses: statuses
       uses_of_solution: uses_of_solution
-    negate: false
-    context_mapping:
-      taxonomy_term: taxonomy_term
-    uuid: 1f39a878-6ead-4f3b-b92c-f71899a8694d
 selection_logic: and
 weight: -5
 relationships: {  }

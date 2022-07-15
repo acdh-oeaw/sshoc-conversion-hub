@@ -1,7 +1,14 @@
 uuid: d7863713-13f2-4b78-a676-ff9dc4a367d4
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  config:
+    - node.type.solution
+  module:
+    - node
+    - quickedit
+    - taxonomy
+    - toolbar
 id: curation
 label: Curation
 weight: 4

@@ -6,7 +6,6 @@ dependencies:
     - node.type.solution
   module:
     - node
-    - quickedit
     - taxonomy
     - toolbar
 id: curation
@@ -15,7 +14,6 @@ weight: 4
 is_admin: null
 permissions:
   - 'access content overview'
-  - 'access in-place editing'
   - 'access taxonomy overview'
   - 'access toolbar'
   - 'create solution content'

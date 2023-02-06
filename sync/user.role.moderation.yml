@@ -15,7 +15,6 @@ dependencies:
     - taxonomy.vocabulary.uses_of_solution
   module:
     - node
-    - quickedit
     - taxonomy
     - toolbar
 id: moderation
@@ -24,7 +23,6 @@ weight: 5
 is_admin: null
 permissions:
   - 'access content overview'
-  - 'access in-place editing'
   - 'access taxonomy overview'
   - 'access toolbar'
   - 'create solution content'

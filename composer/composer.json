@@ -20,6 +20,7 @@
         "drupal/core-composer-scaffold": "^9",
         "drupal/core-project-message": "^9",
         "drupal/core-recommended": "^9",
+        "drupal/ctools": "^3.10",
         "drupal/entity_browser": "^2.5",
         "drupal/facets": "^2.0",
         "drupal/field_group": "^3.1",
